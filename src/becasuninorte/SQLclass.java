@@ -48,41 +48,27 @@ public class SQLclass {
         }
     
     }
-    public DefaultTableModel query(String from, int n, int t){
+    
+    public DefaultTableModel query(String from, String v[]) {
         try {
-            DefaultTableModel model=new DefaultTableModel();
-            if(t==3){
-                model.addColumn("Id");
-                model.addColumn("Hijo De");
-                model.addColumn("Nombre");
-            }else if(t==2){
-                model.addColumn("Id");
-                model.addColumn("Nombre");
-            } else if(t==1){
-                model.addColumn("Id");
-                model.addColumn("Nombre");
-                model.addColumn("Cantidad Hijos");
-            }
-            
-            
-            ResultSet resultset=st.executeQuery(from);
-            
-            String result[]=new String[n];
-            
-            while (resultset.next()){
-                for (int i = 1; i <=n ; i++) {
-                    result[i-1]=resultset.getString(i);
+            DefaultTableModel model = new DefaultTableModel(v, 0);
+            int n = v.length;
+            ResultSet resultset = st.executeQuery(from);
+            String result[] = new String[n];
+            while (resultset.next()) {
+                for (int i = 1; i <= n; i++) {
+                    result[i - 1] = resultset.getString(i);
                 }
                 model.addRow(result);
-                
             }
             return model;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error ejecucion query: "+ e);
-            System.out.println("Error ejecucion query: "+e);
+            //JOptionPane.showMessageDialog(null, "Error ejecucion query: " + e);
+            System.out.println("Error ejecucion query: " + e);
             return null;
         }
     }
+    
     public void ejecutar(String from){
         try {
             
