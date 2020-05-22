@@ -26,7 +26,7 @@ public class AsignarComportamientos extends javax.swing.JFrame {
         DB = database;
         String[] v1 = {"id","Nombre","Detalle"};
         String[] v2 = {"id_persona","comportamiento"};
-        DefaultTableModel m = DB.query("SELECT * FROM comportamiento", v1, 0);        
+        DefaultTableModel m = DB.query("SELECT * FROM comportamiento", v1, 0);      
         comportamientos.setModel(m);
         m = DB.query("SELECT * FROM comportamiento_de_persona", v2, 0);
         compor_persona.setModel(m);
