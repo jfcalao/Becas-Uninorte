@@ -20,11 +20,13 @@ public class BecasUninorte {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        
+        System.out.println("Hola mundoooo");
         String user= JOptionPane.showInputDialog("Digite el usuario de la base de datos:");
         String password=JOptionPane.showInputDialog("Digite contraseña de la base de datos:");
+        String personaId=JOptionPane.showInputDialog("Digite id de la persona:");
         SQLclass conn=new SQLclass(user,password);
-        Inicial vista=new Inicial(conn);
+        
+        AsignarComportamientos vista=new AsignarComportamientos(conn,personaId);
         vista.setVisible(true);
     }
     

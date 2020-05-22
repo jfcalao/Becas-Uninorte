@@ -48,9 +48,11 @@ public class SQLclass {
         }
     
     }
+
 public DefaultTableModel query(String from, String v[]) {
         try {
             DefaultTableModel model = new DefaultTableModel(v, 0);
+
             int n = v.length;
             ResultSet resultset = st.executeQuery(from);
             String result[] = new String[n];
@@ -67,6 +69,7 @@ public DefaultTableModel query(String from, String v[]) {
             return null;
         }
     }
+    
     public void ejecutar(String from){
         try {
             

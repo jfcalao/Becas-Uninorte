@@ -136,7 +136,7 @@ public class Inicial extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
-        jButton1.setText("Atras");
+        jButton1.setText("aceptar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -262,7 +262,13 @@ public class Inicial extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        AsignarComportamientos.comportamientos.setModel(query.query("SELECT * FROM comportamiento", v));
         
+        dispose();
+
+        //hijos.setModel(query.query("select * from hijo", 3,3));
+           
+
     }//GEN-LAST:event_jButton1ActionPerformed
 String idTable,nomTable,detalleTable;
     private void behaviorsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_behaviorsMouseClicked
