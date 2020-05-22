@@ -16,6 +16,7 @@ public class Beneficios extends javax.swing.JFrame {
     /**
      * Creates new form Beneficios
      */
+    String idTable, descripTable;
     static SQLclass query;
     String v[] = {"id", "descripción"};
 
@@ -51,6 +52,7 @@ public class Beneficios extends javax.swing.JFrame {
         Actualizar_button = new javax.swing.JButton();
         Borrar_button = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        Return = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,6 +145,12 @@ public class Beneficios extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Beneficios_table);
 
+        idNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                idNewKeyTyped(evt);
+            }
+        });
+
         Actualizar_button.setText("Actualizar");
         Actualizar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,8 +211,15 @@ public class Beneficios extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Actualizar_button)
                     .addComponent(Borrar_button))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
+
+        Return.setText("Regresar");
+        Return.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReturnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -214,11 +229,20 @@ public class Beneficios extends javax.swing.JFrame {
                 .addComponent(Inserción, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Return)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Inserción, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Inserción, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Return)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         pack();
@@ -250,7 +274,7 @@ public class Beneficios extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Insertar_buttonActionPerformed
 
-    String idTable, descripTable;
+    
     private void Beneficios_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Beneficios_tableMouseClicked
 
         jLabel6.setVisible(true);
@@ -291,6 +315,20 @@ public class Beneficios extends javax.swing.JFrame {
             System.out.println("No borro");
         }
     }//GEN-LAST:event_Borrar_buttonActionPerformed
+
+    private void ReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnActionPerformed
+        Inicial ini = new Inicial (query);
+        ini.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ReturnActionPerformed
+
+    private void idNewKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idNewKeyTyped
+        char validar = evt.getKeyChar();
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_idNewKeyTyped
 
     /**
      * @param args the command line arguments
@@ -336,6 +374,7 @@ public class Beneficios extends javax.swing.JFrame {
     private javax.swing.JTextField ID_bene;
     private javax.swing.JPanel Inserción;
     private javax.swing.JButton Insertar_button;
+    private javax.swing.JButton Return;
     private javax.swing.JTextField idNew;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
