@@ -18,6 +18,7 @@ public class Inicial extends javax.swing.JFrame {
     public Inicial(SQLclass query) {
         initComponents();
         this.query=query;
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -124,7 +125,7 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_Beneficio_buttonActionPerformed
 
     private void BecaBene_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BecaBene_buttonActionPerformed
-        BecaBeneficio bb = new BecaBeneficio();
+        BecaBeneficio bb = new BecaBeneficio(query);
         bb.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BecaBene_buttonActionPerformed
