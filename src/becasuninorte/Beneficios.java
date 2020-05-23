@@ -333,7 +333,7 @@ public class Beneficios extends javax.swing.JFrame {
     }//GEN-LAST:event_Borrar_buttonActionPerformed
 
     private void ReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnActionPerformed
-        Inicial ini = new Inicial(query);
+        GestionBecas ini = new GestionBecas(query);
         ini.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ReturnActionPerformed
