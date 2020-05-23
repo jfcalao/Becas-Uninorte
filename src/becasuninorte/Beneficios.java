@@ -257,13 +257,13 @@ public class Beneficios extends javax.swing.JFrame {
     }//GEN-LAST:event_ID_beneKeyTyped
 
     private void Insertar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Insertar_buttonActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "¿Confirma insertar el beneficio con id=" + ID_bene.getText()
-                + " y descripción: " + Desc_bene.getText()) == 0) {
-            String id = ID_bene.getText();
-            String descripcion = "'" + Desc_bene.getText() + "'";
-            if (descripcion.equals("''") && id.equals("")) {
-                JOptionPane.showMessageDialog(null, "Debe rellenar ambos campos");
-            } else {
+        String id = ID_bene.getText();
+        String descripcion = "'" + Desc_bene.getText() + "'";
+        if (descripcion.equals("''") || id.equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe rellenar ambos campos");
+        } else {
+            if (JOptionPane.showConfirmDialog(null, "¿Confirma insertar el beneficio con id=" + ID_bene.getText()
+                    + " y descripción: " + Desc_bene.getText()) == 0) {
                 String comand = "insert into beneficio values (" + id + "," + descripcion + ")";
                 System.out.println(comand);
                 query.ejecutar(comand);
@@ -272,9 +272,10 @@ public class Beneficios extends javax.swing.JFrame {
                 Desc_bene.setText("");
             }
         }
+
     }//GEN-LAST:event_Insertar_buttonActionPerformed
 
-    
+
     private void Beneficios_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Beneficios_tableMouseClicked
 
         jLabel6.setVisible(true);
@@ -287,37 +288,52 @@ public class Beneficios extends javax.swing.JFrame {
     }//GEN-LAST:event_Beneficios_tableMouseClicked
 
     private void Actualizar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Actualizar_buttonActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "¿Confirma actualizar el beneficio con id=" + idTable
-                + " y descripción: " + descripTable) == 0) {
-
-            String id = idNew.getText();
-            String descripcion = "'" + DescripcionNew.getText() + "'";
-            if (descripcion.equals("''") && id.equals("")) {
+        String id = idNew.getText();
+        String descripcion = "'" + DescripcionNew.getText() + "'";
+        if (idTable == null) {
+            JOptionPane.showMessageDialog(null, "Debe elegir un beneficio a actualizar");
+        } else {
+            if (descripcion.equals("''") || id.equals("")) {
                 JOptionPane.showMessageDialog(null, "Debe rellenar ambos campos");
             } else {
-                String p = "update beneficio set id=" + id + ", descripcion=" + descripcion + " where id=" + idTable;
-                System.out.println(p);
-                query.ejecutar(p);
-                System.out.println("Ejecutado ");
-                Beneficios_table.setModel(query.query("select * from beneficio", v));
-                idNew.setText("");
-                DescripcionNew.setText("");
+                if (idTable.equals(id) && descripTable.equals(DescripcionNew.getText())) {
+                    JOptionPane.showMessageDialog(null, "Lo digitado en los campos de texto es igual"
+                            + "a los valores registrados dentro de la base de datos");
+                } else {
+                    if (JOptionPane.showConfirmDialog(null, "¿Confirma actualizar el beneficio con id=" + idTable
+                            + " y descripción: " + descripTable) == 0) {
+                        String p = "update beneficio set id=" + id + ", descripcion=" + descripcion + " where id=" + idTable;
+                        System.out.println(p);
+                        query.ejecutar(p);
+                        System.out.println("Ejecutado ");
+                        Beneficios_table.setModel(query.query("select * from beneficio", v));
+                        idNew.setText("");
+                        DescripcionNew.setText("");
+                    }
+                }
             }
         }
+
+
     }//GEN-LAST:event_Actualizar_buttonActionPerformed
 
     private void Borrar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Borrar_buttonActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "¿Confirma borrar el beneficio con id=" + idTable + 
-                " y descripción: " + descripTable) == 0) {
-            query.ejecutar("delete from beneficio where id=" + idTable);
-            Beneficios_table.setModel(query.query("select * from beneficio", v));
+        if (idTable == null) {
+            JOptionPane.showMessageDialog(null, "Debe elegir un beneficio a borrar");
         } else {
-            System.out.println("No borro");
+            if (JOptionPane.showConfirmDialog(null, "¿Confirma borrar el beneficio con id=" + idTable
+                    + " y descripción: " + descripTable) == 0) {
+                query.ejecutar("delete from beneficio where id=" + idTable);
+                Beneficios_table.setModel(query.query("select * from beneficio", v));
+            } else {
+                System.out.println("No borro");
+            }
         }
+
     }//GEN-LAST:event_Borrar_buttonActionPerformed
 
     private void ReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnActionPerformed
-        Inicial ini = new Inicial (query);
+        Inicial ini = new Inicial(query);
         ini.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ReturnActionPerformed

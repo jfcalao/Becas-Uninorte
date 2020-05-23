@@ -286,14 +286,14 @@ public class Beca extends javax.swing.JFrame {
     }//GEN-LAST:event_IdBecaKeyTyped
 
     private void Insertar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Insertar_buttonActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "¿Confirma insertar la beca " + NombreBeca.getText()
-                + " con id=" + IdBeca.getText() + " y " + CuposBeca.getText() + " cupos") == 0) {
-            String id = IdBeca.getText();
-            String nombre = "'" + NombreBeca.getText() + "'";
-            String cupos = CuposBeca.getText();
-            if (nombre.equals("''") && id.equals("") && cupos.equals("")) {
-                JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos");
-            } else {
+        String id = IdBeca.getText();
+        String nombre = "'" + NombreBeca.getText() + "'";
+        String cupos = CuposBeca.getText();
+        if (nombre.equals("''") || id.equals("") || cupos.equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos");
+        } else {
+            if (JOptionPane.showConfirmDialog(null, "¿Confirma insertar la beca " + NombreBeca.getText()
+                    + " con id=" + IdBeca.getText() + " y " + CuposBeca.getText() + " cupos") == 0) {
                 String comand = "insert into beca values (" + id + "," + nombre + "," + cupos + ")";
                 System.out.println(comand);
                 query.ejecutar(comand);
@@ -303,6 +303,8 @@ public class Beca extends javax.swing.JFrame {
                 CuposBeca.setText("");
             }
         }
+
+
     }//GEN-LAST:event_Insertar_buttonActionPerformed
 
     private void Becas_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Becas_tableMouseClicked
@@ -320,35 +322,50 @@ public class Beca extends javax.swing.JFrame {
     }//GEN-LAST:event_Becas_tableMouseClicked
 
     private void Actualizar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Actualizar_buttonActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "¿Confirma actualizar la beca " + nomTable
-                + " con id=" + idTable + " y " + cuposTable + " cupos") == 0) {
+        String id = idNew.getText();
+        String nombre = "'" + nombreNew.getText() + "'";
+        String cupos = cuposNew.getText();
 
-            String id = idNew.getText();
-            String nombre = "'" + nombreNew.getText() + "'";
-            String cupos = cuposNew.getText();
-
-            if (nombre.equals("''") && id.equals("") && cupos.equals("")) {
+        if (idTable == null) {
+            JOptionPane.showMessageDialog(null, "Debe elegir una beca a actualizar");
+        } else {
+            if (nombre.equals("''") || id.equals("") || cupos.equals("")) {
                 JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos");
             } else {
-                String p = "update beca set id=" + id + ", nombre=" + nombre + ", cupos= " + cupos + " where id=" + idTable;
-                System.out.println(p);
-                query.ejecutar(p);
-                System.out.println("Ejecutado ");
-                Becas_table.setModel(query.query("select * from beca", v));
-                idNew.setText("");
-                nombreNew.setText("");
-                cuposNew.setText("");
+                if (idTable.equals(id) && nomTable.equals(nombreNew.getText()) && cuposTable.equals(cupos)) {
+                    JOptionPane.showMessageDialog(null, "Lo digitado en los campos de texto es igual"
+                            + "a los valores registrados dentro de la base de datos");
+
+                } else {
+                    if (JOptionPane.showConfirmDialog(null, "¿Confirma actualizar la beca " + nomTable
+                            + " con id=" + idTable + " y " + cuposTable + " cupos") == 0) {
+                        String p = "update beca set id=" + id + ", nombre=" + nombre + ", cupos= " + cupos + " where id=" + idTable;
+                        System.out.println(p);
+                        query.ejecutar(p);
+                        System.out.println("Ejecutado ");
+                        Becas_table.setModel(query.query("select * from beca", v));
+                        idNew.setText("");
+                        nombreNew.setText("");
+                        cuposNew.setText("");
+                    }
+                }
             }
         }
+
+
     }//GEN-LAST:event_Actualizar_buttonActionPerformed
 
     private void Borrar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Borrar_buttonActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "¿Confirma borrar la beca " + nomTable
-                + " con id=" + idTable + " y " + cuposTable + " cupos") == 0) {
-            query.ejecutar("delete from beca where id=" + idTable);
-            Becas_table.setModel(query.query("select * from beca", v));
+        if (idTable == null) {
+            JOptionPane.showMessageDialog(null, "Debe elegir una beca a borrar");
         } else {
-            System.out.println("No borro");
+            if (JOptionPane.showConfirmDialog(null, "¿Confirma borrar la beca " + nomTable
+                    + " con id=" + idTable + " y " + cuposTable + " cupos") == 0) {
+                query.ejecutar("delete from beca where id=" + idTable);
+                Becas_table.setModel(query.query("select * from beca", v));
+            } else {
+                System.out.println("No borro");
+            }
         }
     }//GEN-LAST:event_Borrar_buttonActionPerformed
 
