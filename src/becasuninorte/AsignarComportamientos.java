@@ -18,17 +18,19 @@ public class AsignarComportamientos extends javax.swing.JFrame {
      * Creates new form AsignarComportamientos
      */
     static SQLclass DB;
-    static String id_per;
     String[] v1 = {"id","Nombre","Detalle"};
-    String[] v2 = {"id_persona","comportamiento"};
-    public AsignarComportamientos(SQLclass database, String id_persona) {
+    String[] v2 = {"id","Identificación","Nombre","Primer apellido","Segundo apellido"};
+    String[] v3 = {"id_persona","comportamiento"};
+    
+    public AsignarComportamientos(SQLclass database) {
         initComponents();
-        id_per = id_persona;
         DB = database;
         
         DefaultTableModel m = DB.query("SELECT * FROM comportamiento", v1);      
         comportamientos.setModel(m);
-        m = DB.query("SELECT * FROM comportamiento_de_persona", v2);
+        m = DB.query("SELECT id,identificacion,nombre,apellido1,apellido2 FROM persona", v2);
+        personas.setModel(m);
+        m = DB.query("SELECT * FROM comportamiento_de_persona", v3);
         compor_persona.setModel(m);
         
     }
@@ -42,9 +44,9 @@ public class AsignarComportamientos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        idBeca = new javax.swing.JTextField();
+        idpersona = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        idBeneficio = new javax.swing.JTextField();
+        idcomportamiento = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         Join = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -64,10 +66,10 @@ public class AsignarComportamientos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Id Beca");
+        jLabel1.setText("Id Persona");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Id beneficio");
+        jLabel2.setText("Id comportamiento");
 
         Join.setText("Unir");
         Join.addActionListener(new java.awt.event.ActionListener() {
@@ -221,16 +223,26 @@ public class AsignarComportamientos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(idpersona, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(idBeca)
-                            .addComponent(idBeneficio)
-                            .addComponent(Join, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Join, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(idcomportamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(23, 23, 23)
+                                        .addComponent(jLabel1)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -242,20 +254,23 @@ public class AsignarComportamientos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(idBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
+                        .addComponent(idpersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(idBeneficio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(idcomportamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)
-                        .addComponent(Join))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Join)
+                        .addGap(78, 78, 78)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Return)
@@ -267,16 +282,19 @@ public class AsignarComportamientos extends javax.swing.JFrame {
 
     private void JoinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JoinActionPerformed
         String id_comp = comportamientos.getValueAt(comportamientos.getSelectedRow(),0).toString();
+        String id_per = personas.getValueAt(personas.getSelectedRow(),0).toString();
         DB.ejecutar("INSERT INTO comportamiento_de_persona(id_comportamiento,id_persona) VALUES("+ id_comp +","+ id_per +")");
-        DB.query("SELECT * FROM comportamiento_de_persona", v2);
     }//GEN-LAST:event_JoinActionPerformed
 
     private void personasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personasMouseClicked
-        
+        idpersona.setText(personas.getValueAt(personas.getSelectedRow(), 0).toString());
+        String idper = personas.getValueAt(personas.getSelectedRow(),0).toString();
+        String[] v = {"id","comportamiento","Descripción"};
+        DefaultTableModel m = DB.query("SELECT com.id,com.nombre,detalle FROM  persona per INNER JOIN comportamiento_de_persona ON (id=id_persona) INNER JOIN comportamiento com on (id_comportamiento=com.id) where per.id="+idper, v);
     }//GEN-LAST:event_personasMouseClicked
 
     private void comportamientosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comportamientosMouseClicked
-        
+        idcomportamiento.setText(comportamientos.getValueAt(comportamientos.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_comportamientosMouseClicked
 
     private void compor_personaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_compor_personaMouseClicked
@@ -284,9 +302,7 @@ public class AsignarComportamientos extends javax.swing.JFrame {
     }//GEN-LAST:event_compor_personaMouseClicked
 
     private void ReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnActionPerformed
-        GestionBecas ini = new GestionBecas(query);
-        ini.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_ReturnActionPerformed
 
     /**
@@ -319,7 +335,7 @@ public class AsignarComportamientos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AsignarComportamientos(DB,id_per).setVisible(true);
+                new AsignarComportamientos(DB).setVisible(true);
             }
         });
     }
@@ -329,8 +345,8 @@ public class AsignarComportamientos extends javax.swing.JFrame {
     private javax.swing.JButton Return;
     private javax.swing.JTable compor_persona;
     private javax.swing.JTable comportamientos;
-    private javax.swing.JTextField idBeca;
-    private javax.swing.JTextField idBeneficio;
+    private javax.swing.JTextField idcomportamiento;
+    private javax.swing.JTextField idpersona;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

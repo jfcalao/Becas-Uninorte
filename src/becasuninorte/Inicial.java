@@ -262,7 +262,7 @@ public class Inicial extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        AsignarComportamientos.comportamientos.setModel(query.query("SELECT * FROM comportamiento", v));
+        
         
         dispose();
 
