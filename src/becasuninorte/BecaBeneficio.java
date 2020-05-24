@@ -262,7 +262,7 @@ public class BecaBeneficio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnActionPerformed
-        GestionBecas ini = new GestionBecas(query);
+        Principal ini = new Principal(query);
         ini.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ReturnActionPerformed
