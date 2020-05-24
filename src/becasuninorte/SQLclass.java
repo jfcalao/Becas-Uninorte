@@ -55,7 +55,7 @@ public DefaultTableModel query(String from, String v[]) {
             int n = v.length;
             ResultSet resultset = st.executeQuery(from);
             String result[] = new String[n];
-            while (resultset.next()) {
+         while (resultset.next()) {
                 for (int i = 1; i <= n; i++) {
                     result[i - 1] = resultset.getString(i);
                 }
