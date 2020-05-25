@@ -32,7 +32,7 @@ public class SplashScreen extends javax.swing.JFrame {
                         Thread.sleep(150);
                         if (x == 100) {
                             lg.setVisible(true);
-                            rootPane.setVisible(false);
+                            dispose();
                         }
                     }
                 }catch(Exception e){
@@ -53,16 +53,15 @@ public class SplashScreen extends javax.swing.JFrame {
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(490, 310));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(progressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 470, -1));
+        jPanel2.add(progressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 284, 470, 10));
 
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setText("Becas Universidad Del Norte 1.0");
-        jPanel2.add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, -1, -1));
+        jPanel2.add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/propuesta.png"))); // NOI18N
         jPanel2.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 310));
