@@ -303,7 +303,7 @@ String idTable,nomTable,detalleTable;
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
 
-        if (JOptionPane.showConfirmDialog(null, "¿Confirma actualizar el comportamiento " + nomTable + " con id=" + idTable + " y descripción" + detalleTable) == 0) {
+        if (JOptionPane.showConfirmDialog(null, "¿Confirma actualizar el comportamiento: " + nomTable + " con id=" + idTable + " y descripción" + detalleTable) == 0) {
             
             String p = "update comportamiento set detalle=" + detalleNew.getText() + ", nombre=" + nomNew.getText() + "where id=" + idTable;
             System.out.println(p);
