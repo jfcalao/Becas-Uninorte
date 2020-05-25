@@ -22,9 +22,9 @@ public class BecasUninorte {
 
         String user= JOptionPane.showInputDialog("Digite el usuario de la base de datos:");
         String password=JOptionPane.showInputDialog("Digite contraseña de la base de datos:");
-        String personaId=JOptionPane.showInputDialog("Digite id de la persona:");
+        //String personaId=JOptionPane.showInputDialog("Digite id de la persona:");
         SQLclass conn=new SQLclass(user,password);
-        IngresaPersona vista = new IngresaPersona(conn);
+        BecasPersona vista = new BecasPersona(conn);
         vista.setVisible(true);
     }
     
