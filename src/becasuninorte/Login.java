@@ -58,6 +58,11 @@ public class Login extends javax.swing.JFrame {
                 conectarMousePressed(evt);
             }
         });
+        conectar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conectarActionPerformed(evt);
+            }
+        });
         getContentPane().add(conectar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 420, 90, 30));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoLogin.gif"))); // NOI18N
@@ -72,10 +77,14 @@ public class Login extends javax.swing.JFrame {
         String user = this.usuario.getText();
         String password = this.contraseña.getText();
         SQLclass conn = new SQLclass(user,password);
-        BecasPersona vista = new BecasPersona(conn);
+        Beca vista = new Beca(conn);
         vista.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_conectarMousePressed
+
+    private void conectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conectarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_conectarActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
