@@ -74,8 +74,8 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void conectarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_conectarMousePressed
-        String user = this.usuario.getText();
-        String password = this.contraseña.getText();
+        String user = usuario.getText();
+        String password = contraseña.getText();
         SQLclass conn = new SQLclass(user,password);
         Principal vista = new Principal(conn);
         vista.setVisible(true);
