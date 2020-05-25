@@ -43,6 +43,7 @@ public class Beneficios extends javax.swing.JFrame {
         ID_bene = new javax.swing.JTextField();
         Desc_bene = new javax.swing.JTextField();
         Insertar_button = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -80,39 +81,46 @@ public class Beneficios extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText(" Atras");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout InserciónLayout = new javax.swing.GroupLayout(Inserción);
         Inserción.setLayout(InserciónLayout);
         InserciónLayout.setHorizontalGroup(
             InserciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InserciónLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(InserciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InserciónLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel1))
-                    .addGroup(InserciónLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(InserciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(InserciónLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(ID_bene, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(InserciónLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addGroup(InserciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Desc_bene, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(InserciónLayout.createSequentialGroup()
-                                        .addGap(19, 19, 19)
-                                        .addComponent(Insertar_button)))))))
+                    .addGroup(InserciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(InserciónLayout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addGap(18, 18, 18)
+                            .addGroup(InserciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Desc_bene, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(InserciónLayout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addComponent(Insertar_button))))
+                        .addGroup(InserciónLayout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(18, 18, 18)
+                            .addGroup(InserciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(ID_bene, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jButton3))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         InserciónLayout.setVerticalGroup(
             InserciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InserciónLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jButton3)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addGap(57, 57, 57)
+                .addGap(18, 18, 18)
                 .addGroup(InserciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(ID_bene, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -122,7 +130,7 @@ public class Beneficios extends javax.swing.JFrame {
                     .addComponent(Desc_bene, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addComponent(Insertar_button)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
@@ -346,6 +354,12 @@ public class Beneficios extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_idNewKeyTyped
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Principal vista = new Principal(query);
+        vista.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -392,6 +406,7 @@ public class Beneficios extends javax.swing.JFrame {
     private javax.swing.JButton Insertar_button;
     private javax.swing.JButton Return;
     private javax.swing.JTextField idNew;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

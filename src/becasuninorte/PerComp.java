@@ -20,7 +20,6 @@ public class PerComp extends javax.swing.JFrame {
     static SQLclass DB;
     String[] v1 = {"id","Nombre","Detalle"};
     String[] v2 = {"id","Identificación","Nombre","Primer apellido","Segundo apellido"};
-    String[] v3 = {"id_persona","comportamiento"};
     
     public PerComp(SQLclass database) {
         initComponents();
@@ -29,10 +28,7 @@ public class PerComp extends javax.swing.JFrame {
         DefaultTableModel m = DB.query("SELECT * FROM comportamiento", v1);      
         comportamientos.setModel(m);
         m = DB.query("SELECT id,identificacion,nombre,apellido1,apellido2 FROM persona", v2);
-        personas.setModel(m);
-        m = DB.query("SELECT * FROM comportamiento_de_persona", v3);
-        compor_persona.setModel(m);
-        
+        personas.setModel(m);        
     }
 
     /**
@@ -53,6 +49,7 @@ public class PerComp extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         personas = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         comportamientos = new javax.swing.JTable();
@@ -98,25 +95,41 @@ public class PerComp extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Personas");
 
+        jButton6.setText(" Atras");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addComponent(jLabel3)
-                .addGap(54, 181, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton6)
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel3)
+                        .addGap(54, 181, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(31, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -305,6 +318,12 @@ public class PerComp extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ReturnActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        Principal vista = new Principal(DB);
+        vista.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -348,6 +367,7 @@ public class PerComp extends javax.swing.JFrame {
     private javax.swing.JTable comportamientos;
     private javax.swing.JTextField idcomportamiento;
     private javax.swing.JTextField idpersona;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
