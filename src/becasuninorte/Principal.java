@@ -14,10 +14,10 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Inicial
      */
-    static SQLclass query;
+    static SQLclass DB;
     public Principal(SQLclass query) {
         initComponents();
-        this.query=query;
+        this.DB=query;
         this.setLocationRelativeTo(null);
     }
 
@@ -32,9 +32,15 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        Beca_Button = new javax.swing.JButton();
-        Beneficio_button = new javax.swing.JButton();
-        BecaBene_button = new javax.swing.JButton();
+        combo1 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        combo2 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        combo3 = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,24 +49,36 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Gestión de Becas Universidad Virtual del norte");
 
-        Beca_Button.setText("Crear, actualizar y borrar beca");
-        Beca_Button.addActionListener(new java.awt.event.ActionListener() {
+        combo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Becas", "Beneficios", "Comportamientos", "Convocatorias", "Diagnosticos", "Documentos", "Personas", "Requisitos" }));
+
+        jLabel2.setText("Gestionar: ");
+
+        jLabel3.setText("Seleccionar a los: ");
+
+        combo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Preseleccionados", "Candidatos", "Becados" }));
+
+        jButton1.setText("Ir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Beca_ButtonActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        Beneficio_button.setText("Crear, actualizar y borrar beneficio");
-        Beneficio_button.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Ir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Beneficio_buttonActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
-        BecaBene_button.setText("Unir beca con beneficio");
-        BecaBene_button.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setText("Asignarle a una persona: ");
+
+        combo3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diagnosticos (analisis trabajadora social)", "Comportamientos (análisis psicológico)" }));
+
+        jButton3.setText("Ir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BecaBene_buttonActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -68,16 +86,33 @@ public class Principal extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Beca_Button)
-                            .addComponent(Beneficio_button))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(combo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(combo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(combo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(BecaBene_button)))
+                        .addComponent(jButton3)))
+                .addGap(74, 74, 74))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -85,16 +120,22 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(Beca_Button)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Beneficio_button))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(BecaBene_button)))
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jButton1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(combo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(combo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -117,23 +158,53 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Beneficio_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Beneficio_buttonActionPerformed
-        Beneficios bene = new Beneficios(query);
-        bene.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Beneficio_buttonActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        switch(combo1.getSelectedIndex()){
+            case 0:
+                MenuBeca vista1 = new MenuBeca(DB);
+                vista1.setVisible(true);
+                break;
+            case 1:
+                Beneficios vista2 = new Beneficios(DB);
+                vista2.setVisible(true);
+                break;
+            case 2:
+                Comportamiento vista3 = new Comportamiento(DB);
+                vista3.setVisible(true);
+                break;
+            case 3:
+                MenuConvocatoria vista4 = new MenuConvocatoria(DB);
+                vista4.setVisible(true);
+                break;
+            case 4:
+                Diagnostico vista5 = new Diagnostico(DB);
+                vista5.setVisible(true);
+                break;
+            case 5:
+                Documento vista6 = new Documento(DB);
+                vista6.setVisible(true);
+                break;
+            case 6:
+                IngresaPersona vista7 = new IngresaPersona(DB);
+                vista7.setVisible(true);
+                break;
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void BecaBene_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BecaBene_buttonActionPerformed
-        BecaBeneficio bb = new BecaBeneficio(query);
-        bb.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BecaBene_buttonActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(combo3.getSelectedIndex()==0){
+            PerDiagnostico vista = new PerDiagnostico(DB);
+            vista.setVisible(true);
+        }else{
+            PerComp vista = new PerComp(DB);
+            vista.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void Beca_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Beca_ButtonActionPerformed
-        Beca beca = new Beca(query);
-        beca.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Beca_ButtonActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Seleccion vista = new Seleccion(DB,combo2.getSelectedItem().toString());
+        vista.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,16 +239,22 @@ public class Principal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal(query).setVisible(true);
+                new Principal(DB).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BecaBene_button;
-    private javax.swing.JButton Beca_Button;
-    private javax.swing.JButton Beneficio_button;
+    private javax.swing.JComboBox<String> combo1;
+    private javax.swing.JComboBox<String> combo2;
+    private javax.swing.JComboBox<String> combo3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
