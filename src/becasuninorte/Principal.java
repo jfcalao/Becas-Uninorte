@@ -163,22 +163,27 @@ public class Principal extends javax.swing.JFrame {
             case 0:
                 MenuBeca vista1 = new MenuBeca(DB);
                 vista1.setVisible(true);
-                break;
+                dispose();
+                break;   
             case 1:
                 Beneficios vista2 = new Beneficios(DB);
                 vista2.setVisible(true);
+                dispose();
                 break;
             case 2:
                 Comportamiento vista3 = new Comportamiento(DB);
                 vista3.setVisible(true);
+                dispose();
                 break;
             case 3:
                 MenuConvocatoria vista4 = new MenuConvocatoria(DB);
                 vista4.setVisible(true);
+                dispose();
                 break;
             case 4:
                 Diagnostico vista5 = new Diagnostico(DB);
                 vista5.setVisible(true);
+                dispose();
                 break;
             case 5:
                 Documento vista6 = new Documento(DB);
@@ -187,6 +192,7 @@ public class Principal extends javax.swing.JFrame {
             case 6:
                 IngresaPersona vista7 = new IngresaPersona(DB);
                 vista7.setVisible(true);
+                dispose();
                 break;
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -202,6 +208,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
         Seleccion vista = new Seleccion(DB,combo2.getSelectedItem().toString());
         vista.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed

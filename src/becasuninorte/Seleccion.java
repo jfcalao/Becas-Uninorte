@@ -29,10 +29,16 @@ public class Seleccion extends javax.swing.JFrame {
         for (int i = 0; i < m.getRowCount(); i++) {
             combo.addItem(m.getValueAt(i,0).toString());
         }
+        String[] v = {"id","Nombre","Cupos"};
+        int index=combo.getSelectedIndex();
+        String idConv=m.getValueAt(index, 0).toString();
+        select b.id, b.nombre, b.cupos from beca b inner join pertenece_a pa on (b.id=pa.id_beca) where pa.id_convocatoria=idConv;
+        
         String[] v2 = {"id","Identificación","Nombre","Primer apellido","Segundo apellido"};
         switch(texto){
             case "Preseleccionados":
                 m = DB.query("Select id,identificacion,nombre,apellido1,apellido2 FROM persona where ", v2);
+                personas.setModel(m);
             break;
         }
     }
