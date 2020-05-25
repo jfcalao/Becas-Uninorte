@@ -69,10 +69,10 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void conectarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_conectarMousePressed
-        String user = this.usuario.getText();
-        String password = this.contraseña.getText();
+        String user = usuario.getText();
+        String password = contraseña.getText();
         SQLclass conn = new SQLclass(user,password);
-        BecasPersona vista = new BecasPersona(conn);
+        RequisitoDeBeca vista = new RequisitoDeBeca(conn);
         vista.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_conectarMousePressed
