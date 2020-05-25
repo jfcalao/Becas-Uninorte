@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Daniel Porto
  */
 
-public class AsignarComportamientos extends javax.swing.JFrame {
+public class PerComp extends javax.swing.JFrame {
 
     /**
      * Creates new form AsignarComportamientos
@@ -22,7 +22,7 @@ public class AsignarComportamientos extends javax.swing.JFrame {
     String[] v2 = {"id","Identificación","Nombre","Primer apellido","Segundo apellido"};
     String[] v3 = {"id_persona","comportamiento"};
     
-    public AsignarComportamientos(SQLclass database) {
+    public PerComp(SQLclass database) {
         initComponents();
         DB = database;
         
@@ -322,20 +322,21 @@ public class AsignarComportamientos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AsignarComportamientos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerComp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AsignarComportamientos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerComp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AsignarComportamientos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerComp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AsignarComportamientos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerComp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AsignarComportamientos(DB).setVisible(true);
+                new PerComp(DB).setVisible(true);
             }
         });
     }
