@@ -13,6 +13,9 @@ public class MenuBecaGU extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         DB = database;
+        jTextArea9.setFont(new java.awt.Font("Monospaced", 0, 13));
+        jTextArea12.setFont(new java.awt.Font("Monospaced", 0, 13));
+        jTextArea13.setFont(new java.awt.Font("Monospaced", 1, 18));
     }
 
     @SuppressWarnings("unchecked")
@@ -119,7 +122,7 @@ public class MenuBecaGU extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
-        BecaGU visual = new BecaGU(DB);
+        Beca visual = new Beca(DB);
         visual.setVisible(true);
     }//GEN-LAST:event_jButton1MousePressed
 

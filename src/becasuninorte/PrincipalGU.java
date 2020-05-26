@@ -18,6 +18,19 @@ public class PrincipalGU extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         cardLayout = (CardLayout)(cards.getLayout());
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 13));
+        jTextArea2.setFont(new java.awt.Font("Monospaced", 0, 13));
+        jTextArea3.setFont(new java.awt.Font("Monospaced", 0, 13));
+        jTextArea4.setFont(new java.awt.Font("Monospaced", 0, 13));
+        jTextArea5.setFont(new java.awt.Font("Monospaced", 0, 13));
+        jTextArea6.setFont(new java.awt.Font("Monospaced", 0, 13));
+        jTextArea7.setFont(new java.awt.Font("Monospaced", 0, 13));
+        jTextArea8.setFont(new java.awt.Font("Monospaced", 0, 13));
+        jTextArea9.setFont(new java.awt.Font("Monospaced", 0, 13));
+        jTextArea10.setFont(new java.awt.Font("Monospaced", 0, 13));
+        jTextArea11.setFont(new java.awt.Font("Monospaced", 0, 13));
+        jTextArea12.setFont(new java.awt.Font("Monospaced", 0, 13));
+        jTextArea13.setFont(new java.awt.Font("Monospaced", 0, 13));
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -534,12 +547,12 @@ public class PrincipalGU extends javax.swing.JFrame {
     }//GEN-LAST:event_beneficiosMousePressed
 
     private void comportamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comportamientoMousePressed
-        Comportamiento vista3 = new Comportamiento(DB);
+        BCDDGU vista3 = new BCDDGU(1,DB);
         vista3.setVisible(true);
     }//GEN-LAST:event_comportamientoMousePressed
 
     private void convocatoriaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_convocatoriaMousePressed
-        MenuConvocatoria vista4 = new MenuConvocatoria(DB);
+        MenuConvocatoriaGU vista4 = new MenuConvocatoriaGU(DB);
         vista4.setVisible(true);
     }//GEN-LAST:event_convocatoriaMousePressed
 
