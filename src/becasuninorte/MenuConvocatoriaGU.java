@@ -31,8 +31,6 @@ public class MenuConvocatoriaGU extends javax.swing.JFrame {
         jTextArea9 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(0, 0));
-        setPreferredSize(new java.awt.Dimension(600, 500));
         setSize(new java.awt.Dimension(600, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -44,6 +42,11 @@ public class MenuConvocatoriaGU extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusPainted(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/beca (2).png"))); // NOI18N
@@ -89,6 +92,13 @@ public class MenuConvocatoriaGU extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        // TODO add your handling code here:
+//        Convocatoria vista=new Convocatoria(DB);
+        BCDDGU vista=new BCDDGU(7,DB);
+        vista.setVisible(true);
+    }//GEN-LAST:event_jButton1MousePressed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
