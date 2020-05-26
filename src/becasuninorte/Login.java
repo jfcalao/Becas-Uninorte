@@ -99,6 +99,8 @@ public class Login extends javax.swing.JFrame {
         if (conn.st != null) {
             Principal vista = new Principal(conn);
             vista.setVisible(true);
+            PrincipalGU vs = new PrincipalGU(conn);
+            vs.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_conectarMousePressed
