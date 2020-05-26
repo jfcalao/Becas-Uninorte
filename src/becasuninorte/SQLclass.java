@@ -42,8 +42,9 @@ public class SQLclass {
             Statement statement= connection.createStatement();
             return statement;
         } catch (Exception e) {
-            System.out.println("El error es: "+e);
-            JOptionPane.showMessageDialog(null,"No se pudo conectar a la base de datos: "+ e);
+            //System.out.println("El error es: "+e);
+            //JOptionPane.showMessageDialog(null,"No se pudo conectar a la base de datos: "+ e);
+            JOptionPane.showMessageDialog(null,"Usuario o contraseña incorrectos.");
             return null;
         }
     
