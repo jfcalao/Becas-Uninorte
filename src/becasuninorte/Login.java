@@ -77,7 +77,7 @@ public class Login extends javax.swing.JFrame {
         String user = usuario.getText();
         String password = contraseña.getText();
         SQLclass conn = new SQLclass(user,password);
-        Principal vista = new Principal(conn);
+        BecasConvocatoria vista = new BecasConvocatoria(conn);
         vista.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_conectarMousePressed
