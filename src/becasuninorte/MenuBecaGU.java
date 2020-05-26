@@ -122,7 +122,7 @@ public class MenuBecaGU extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
-        Beca visual = new Beca(DB);
+        BCDDGU visual = new BCDDGU(2,DB);
         visual.setVisible(true);
     }//GEN-LAST:event_jButton1MousePressed
 
