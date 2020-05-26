@@ -16,6 +16,9 @@ public class BCDDGU extends javax.swing.JFrame {
         this.estado = estado;
         this.query = query;
         initComponents();
+        tabla.setModel(query.query("select * from comportamiento",v1));
+        tabla1.setModel(query.query("select * from comportamiento",v1));
+        tabla3.setModel(query.query("select * from comportamiento",v1));
     }
 
     @SuppressWarnings("unchecked")
@@ -61,7 +64,7 @@ public class BCDDGU extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tabla3 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
@@ -227,7 +230,7 @@ public class BCDDGU extends javax.swing.JFrame {
 
         jPanel13.setLayout(new javax.swing.BoxLayout(jPanel13, javax.swing.BoxLayout.LINE_AXIS));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tabla3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -235,7 +238,7 @@ public class BCDDGU extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tabla3);
 
         jPanel13.add(jScrollPane3);
 
@@ -282,7 +285,6 @@ public class BCDDGU extends javax.swing.JFrame {
             // Comportamiento
             case 1:
                 if (JOptionPane.showConfirmDialog(null, "¿Confirma actualizar el comportamiento: " + nomTable + " con id=" + idTable + " y descripción" + detalleTable) == 0) {
-
                     String p = "update comportamiento set detalle=" + campo5.getText() + ", nombre=" + campo4.getText() + "where id=" + idTable;
                     System.out.println(p);
                     String id=campo6.getText();
@@ -304,7 +306,7 @@ public class BCDDGU extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4MousePressed
     String idTable,nomTable,detalleTable;
-    private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla1MouseClicked
+    private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {                                        private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla1MouseClicked
         int seleccionado = tabla1.rowAtPoint(evt.getPoint());
         idTable = String.valueOf(tabla1.getValueAt(seleccionado, 0));
         campo6.setText(idTable);
@@ -362,8 +364,8 @@ public class BCDDGU extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable tabla;
     private javax.swing.JTable tabla1;
+    private javax.swing.JTable tabla3;
     // End of variables declaration//GEN-END:variables
 }
