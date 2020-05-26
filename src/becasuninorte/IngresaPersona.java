@@ -24,7 +24,7 @@ public class IngresaPersona extends javax.swing.JFrame {
     static SQLclass DB;
     String v[] = {"id", "nombre", "cupos"};
     String[] v1 = {"id,per"};
-    DefaultTableModel m = DB.query("SELECT id,periodo_academico FROM convocatoria", v1);
+    DefaultTableModel m;
     public IngresaPersona(SQLclass database) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -34,6 +34,7 @@ public class IngresaPersona extends javax.swing.JFrame {
         }
         
         DB = database;
+        m = DB.query("SELECT id,periodo_academico FROM convocatoria", v1);
         Becas_table.setModel(DB.query("select * from beca", v));
     }
 

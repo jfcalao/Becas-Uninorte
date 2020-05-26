@@ -85,6 +85,7 @@ public class PrincipalGU extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -484,24 +485,32 @@ public class PrincipalGU extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Imagenes.png"))); // NOI18N
+
         javax.swing.GroupLayout opcionesLayout = new javax.swing.GroupLayout(opciones);
         opciones.setLayout(opcionesLayout);
         opcionesLayout.setHorizontalGroup(
             opcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
             .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, opcionesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(34, 34, 34))
         );
         opcionesLayout.setVerticalGroup(
             opcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(opcionesLayout.createSequentialGroup()
-                .addGap(164, 164, 164)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(365, Short.MAX_VALUE))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(opciones);
@@ -567,7 +576,7 @@ public class PrincipalGU extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10MousePressed
 
     private void jButton11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MousePressed
-        IngresaPersona vista7 = new IngresaPersona(DB);
+        IngresaPersonaGU vista7 = new IngresaPersonaGU(DB);
         vista7.setVisible(true);
     }//GEN-LAST:event_jButton11MousePressed
 
@@ -627,6 +636,7 @@ public class PrincipalGU extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
