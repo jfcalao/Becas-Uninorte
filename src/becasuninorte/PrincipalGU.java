@@ -112,7 +112,7 @@ public class PrincipalGU extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea1.setRows(5);
-        jTextArea1.setText("Crea,actualiza y \nelimina un beneficio. \nAsigna un requisito,\ndocumento,beneficio \na una beca.");
+        jTextArea1.setText("Crea,actualiza y \nelimina una convocatoria. \nInscribe becas a\nuna convocatoria.");
         jTextArea1.setOpaque(false);
         gestion.add(jTextArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 190, -1, -1));
 
@@ -167,7 +167,7 @@ public class PrincipalGU extends javax.swing.JFrame {
         jTextArea3.setColumns(20);
         jTextArea3.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea3.setRows(5);
-        jTextArea3.setText("Crea,actualiza y \nelimina un beneficio. \nAsigna un requisito,\ndocumento,beneficio \na una beca.");
+        jTextArea3.setText("Crea,actualiza y \nelimina un beneficio.");
         jTextArea3.setOpaque(false);
         gestion.add(jTextArea3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, -1, -1));
 
@@ -192,7 +192,7 @@ public class PrincipalGU extends javax.swing.JFrame {
         jTextArea4.setColumns(20);
         jTextArea4.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea4.setRows(5);
-        jTextArea4.setText("Crea,actualiza y \nelimina un beneficio. \nAsigna un requisito,\ndocumento,beneficio \na una beca.");
+        jTextArea4.setText("Crea,actualiza y \nelimina un \ncomportamiento.");
         jTextArea4.setOpaque(false);
         gestion.add(jTextArea4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, -1, -1));
 
@@ -217,7 +217,7 @@ public class PrincipalGU extends javax.swing.JFrame {
         jTextArea5.setColumns(20);
         jTextArea5.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea5.setRows(5);
-        jTextArea5.setText("Crea,actualiza y \nelimina una beca. \nAsigna un requisito,\ndocumento,beneficio \na una beca.");
+        jTextArea5.setText("Crea,actualiza y \nelimina un diagnostico.");
         jTextArea5.setOpaque(false);
         gestion.add(jTextArea5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
 
@@ -225,7 +225,7 @@ public class PrincipalGU extends javax.swing.JFrame {
         jTextArea6.setColumns(20);
         jTextArea6.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea6.setRows(5);
-        jTextArea6.setText("Crea,actualiza y \nelimina un beneficio. \nAsigna un requisito,\ndocumento,beneficio \na una beca.");
+        jTextArea6.setText("Crea,actualiza y \nelimina un documento\nrequerido.");
         jTextArea6.setOpaque(false);
         gestion.add(jTextArea6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, -1, -1));
 
@@ -272,7 +272,7 @@ public class PrincipalGU extends javax.swing.JFrame {
         jTextArea7.setColumns(20);
         jTextArea7.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea7.setRows(5);
-        jTextArea7.setText("Crea,actualiza y \nelimina un beneficio. \nAsigna un requisito,\ndocumento,beneficio \na una beca.");
+        jTextArea7.setText("Ingresa a un aspirante.");
         jTextArea7.setOpaque(false);
         gestion.add(jTextArea7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, -1, -1));
 
@@ -362,15 +362,15 @@ public class PrincipalGU extends javax.swing.JFrame {
         jTextArea9.setColumns(20);
         jTextArea9.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea9.setRows(5);
-        jTextArea9.setText("Crea,actualiza y \nelimina un beneficio. \nAsigna un requisito,\ndocumento,beneficio \na una beca.");
+        jTextArea9.setText("Selecciona los que\nserán becados.");
         jTextArea9.setOpaque(false);
-        seleccionar.add(jTextArea9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 190, -1));
+        seleccionar.add(jTextArea9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 190, -1));
 
         jTextArea10.setEditable(false);
         jTextArea10.setColumns(20);
         jTextArea10.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea10.setRows(5);
-        jTextArea10.setText("Crea,actualiza y \nelimina un beneficio. \nAsigna un requisito,\ndocumento,beneficio \na una beca.");
+        jTextArea10.setText("Selecciona los que\nserán candidatos.");
         jTextArea10.setOpaque(false);
         seleccionar.add(jTextArea10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 380, 190, -1));
 
@@ -378,9 +378,9 @@ public class PrincipalGU extends javax.swing.JFrame {
         jTextArea11.setColumns(20);
         jTextArea11.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea11.setRows(5);
-        jTextArea11.setText("Crea,actualiza y \nelimina una beca. \nAsigna un requisito,\ndocumento,beneficio \na una beca.");
+        jTextArea11.setText("Selecciona los que\nserán preseleccionados.");
         jTextArea11.setOpaque(false);
-        seleccionar.add(jTextArea11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 180, -1));
+        seleccionar.add(jTextArea11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 190, -1));
 
         cards.add(seleccionar, "seleccionar");
 
@@ -408,7 +408,7 @@ public class PrincipalGU extends javax.swing.JFrame {
         jTextArea12.setColumns(20);
         jTextArea12.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea12.setRows(5);
-        jTextArea12.setText("Crea,actualiza y \nelimina una beca. \nAsigna un requisito,\ndocumento,beneficio \na una beca.");
+        jTextArea12.setText("Asigna diagnosticos\na una persona");
         jTextArea12.setOpaque(false);
         asignar.add(jTextArea12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, -1, -1));
 
@@ -428,14 +428,14 @@ public class PrincipalGU extends javax.swing.JFrame {
         jTextArea13.setColumns(20);
         jTextArea13.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea13.setRows(5);
-        jTextArea13.setText("Crea,actualiza y \nelimina un beneficio. \nAsigna un requisito,\ndocumento,beneficio \na una beca.");
+        jTextArea13.setText("Asigna comportamientos\na una persona.");
         jTextArea13.setOpaque(false);
-        asignar.add(jTextArea13, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, -1));
+        asignar.add(jTextArea13, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Comportamiento");
-        asignar.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 160, -1));
+        asignar.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 160, -1));
 
         cards.add(asignar, "asignar");
 

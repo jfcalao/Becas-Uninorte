@@ -1,38 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package becasuninorte;
 
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author JONATHAN
  */
-public class BecasConvocatoria extends javax.swing.JFrame {
+public class Relacion extends javax.swing.JFrame {
 
     static SQLclass query;
-    String v1[] = {"id", "nombre", "cupos"};
-    String v2[] = {"id", "descripción"};
-    String v[] = {"id", "periodo", "fecha inicio","fecha cierre","estado"};
-    String idConvTable, idBecaTable, periodoAca, nomBeca;
-
-    public BecasConvocatoria(SQLclass query) {
+    static String nomrela;
+    String idtabla1,idtabla2;
+    public Relacion(SQLclass query, String nomrel) {
         initComponents();
-        this.setLocationRelativeTo(null);
+        nomrela = nomrel;
         this.query = query;
-        convocatorias.setModel(query.query("select * from convocatoria", v));
-        DefaultTableModel var=query.query("select * from beca", v1);
-        
-        
-        var.addColumn("Seleccinado");         
-        becas.setModel(var);
-        becas.getColumnModel().getColumn(3).setCellEditor(becas.getDefaultEditor(Boolean.class));         
-        becas.getColumnModel().getColumn(3).setCellRenderer(becas.getDefaultRenderer(Boolean.class));
-        
+        this.setLocationRelativeTo(null);
+        switch(nomrel){
+            case "beca-beneficio":
+                titulo1.setText("Becas");
+                titulo2.setText("Beneficios");
+                id1.setText("id beca");
+                id2.setText("id beneficio");
+                
+        }
     }
 
     /**
@@ -46,24 +37,28 @@ public class BecasConvocatoria extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        convocatorias = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
+        tabla1 = new javax.swing.JTable();
+        titulo1 = new javax.swing.JLabel();
+        id1 = new javax.swing.JLabel();
+        id2 = new javax.swing.JLabel();
+        idBeca = new javax.swing.JTextField();
+        idBeneficio = new javax.swing.JTextField();
         Join = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        becas = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
+        tabla2 = new javax.swing.JTable();
+        titulo2 = new javax.swing.JLabel();
         Return = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        becasConv = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
+        tabla3 = new javax.swing.JTable();
+        titulo3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
-        convocatorias.setModel(new javax.swing.table.DefaultTableModel(
+        tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -71,15 +66,15 @@ public class BecasConvocatoria extends javax.swing.JFrame {
 
             }
         ));
-        convocatorias.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabla1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                convocatoriasMouseClicked(evt);
+                tabla1MouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(convocatorias);
+        jScrollPane1.setViewportView(tabla1);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel3.setText("Convocatorias");
+        titulo1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        titulo1.setText("Becas");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,18 +86,24 @@ public class BecasConvocatoria extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(161, 161, 161)
-                .addComponent(jLabel3)
+                .addComponent(titulo1)
                 .addGap(54, 181, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(31, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addComponent(titulo1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        id1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        id1.setText("Id Beca");
+
+        id2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        id2.setText("Id beneficio");
 
         Join.setText("Unir");
         Join.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +114,7 @@ public class BecasConvocatoria extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
-        becas.setModel(new javax.swing.table.DefaultTableModel(
+        tabla2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -121,15 +122,15 @@ public class BecasConvocatoria extends javax.swing.JFrame {
 
             }
         ));
-        becas.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabla2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                becasMouseClicked(evt);
+                tabla2MouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(becas);
+        jScrollPane2.setViewportView(tabla2);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setText("Becas disponibles");
+        titulo2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        titulo2.setText("Beneficios");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -141,14 +142,14 @@ public class BecasConvocatoria extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(200, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(titulo2)
                 .addGap(152, 152, 152))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(titulo2)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -163,7 +164,7 @@ public class BecasConvocatoria extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
 
-        becasConv.setModel(new javax.swing.table.DefaultTableModel(
+        tabla3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -171,15 +172,15 @@ public class BecasConvocatoria extends javax.swing.JFrame {
 
             }
         ));
-        becasConv.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabla3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                becasConvMouseClicked(evt);
+                tabla3MouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(becasConv);
+        jScrollPane3.setViewportView(tabla3);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel5.setText("Becas de la convocatoria seleccionada");
+        titulo3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        titulo3.setText("Beneficios de la beca seleccionada");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -191,14 +192,14 @@ public class BecasConvocatoria extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(276, 276, 276)
-                .addComponent(jLabel5)
+                .addComponent(titulo3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5)
+                .addComponent(titulo3)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
                 .addContainerGap())
@@ -214,7 +215,14 @@ public class BecasConvocatoria extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Join, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(id1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(id2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(idBeca)
+                            .addComponent(idBeneficio)
+                            .addComponent(Join, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -227,15 +235,20 @@ public class BecasConvocatoria extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Join)
-                        .addGap(116, 116, 116)))
+                        .addComponent(id1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(idBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(id2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(idBeneficio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(Join))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(Return)
@@ -252,48 +265,20 @@ public class BecasConvocatoria extends javax.swing.JFrame {
     }//GEN-LAST:event_ReturnActionPerformed
 
     private void JoinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JoinActionPerformed
-        if (false) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una convocatoria y una beca");
-        } else {
-            if (JOptionPane.showConfirmDialog(null, "¿Confirma unir becas a la convocatoria " + periodoAca
-                    + " con id=" + idConvTable + "\n el beneficio:  " + nomBeca) == 0) {
-                for (int i = 0; i < becas.getModel().getRowCount(); i++) {
-                    if(becas.getValueAt(i, 3)!=null){
-                        String comand = "insert into pertenece_a values (" + idConvTable + "," + becas.getValueAt(i, 0) + ")";
-                        query.ejecutar(comand);
-                    }
-                }
-                String join = "select b.id, nombre, cupos from beca b inner join pertenece_a pa on (b.id = pa.id_beca)"
-                + " where pa.id_convocatoria = " + idConvTable;
-                becasConv.setModel(query.query(join, v1));
-                
-            }
-        }
-
+        
     }//GEN-LAST:event_JoinActionPerformed
 
-    private void convocatoriasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_convocatoriasMouseClicked
-        int seleccionado = convocatorias.rowAtPoint(evt.getPoint());
-        idConvTable = String.valueOf(convocatorias.getValueAt(seleccionado, 0));
+    private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla1MouseClicked
         
+    }//GEN-LAST:event_tabla1MouseClicked
 
-        periodoAca = String.valueOf(convocatorias.getValueAt(seleccionado, 1));
+    private void tabla2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla2MouseClicked
+        
+    }//GEN-LAST:event_tabla2MouseClicked
 
-        String join = "select b.id, nombre, cupos from beca b inner join pertenece_a pa on (b.id = pa.id_beca)"
-                + " where pa.id_convocatoria = " + idConvTable;
-        becasConv.setModel(query.query(join, v1));
-    }//GEN-LAST:event_convocatoriasMouseClicked
-
-    private void becasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_becasMouseClicked
-        int seleccionado = becas.rowAtPoint(evt.getPoint());
-        idBecaTable = String.valueOf(becas.getValueAt(seleccionado, 0));
-
-        nomBeca = String.valueOf(becas.getValueAt(seleccionado, 1));
-    }//GEN-LAST:event_becasMouseClicked
-
-    private void becasConvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_becasConvMouseClicked
+    private void tabla3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla3MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_becasConvMouseClicked
+    }//GEN-LAST:event_tabla3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -312,27 +297,21 @@ public class BecasConvocatoria extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BecasConvocatoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Relacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BecasConvocatoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Relacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BecasConvocatoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Relacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BecasConvocatoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Relacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BecasConvocatoria(query).setVisible(true);
+                new Relacion(query,nomrela).setVisible(true);
             }
         });
     }
@@ -340,17 +319,21 @@ public class BecasConvocatoria extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Join;
     private javax.swing.JButton Return;
-    private javax.swing.JTable becas;
-    private javax.swing.JTable becasConv;
-    private javax.swing.JTable convocatorias;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel id1;
+    private javax.swing.JLabel id2;
+    private javax.swing.JTextField idBeca;
+    private javax.swing.JTextField idBeneficio;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable tabla1;
+    private javax.swing.JTable tabla2;
+    private javax.swing.JTable tabla3;
+    private javax.swing.JLabel titulo1;
+    private javax.swing.JLabel titulo2;
+    private javax.swing.JLabel titulo3;
     // End of variables declaration//GEN-END:variables
 }

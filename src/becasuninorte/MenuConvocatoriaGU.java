@@ -31,8 +31,6 @@ public class MenuConvocatoriaGU extends javax.swing.JFrame {
         jTextArea9 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(0, 0));
-        setPreferredSize(new java.awt.Dimension(600, 500));
         setSize(new java.awt.Dimension(600, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -81,9 +79,9 @@ public class MenuConvocatoriaGU extends javax.swing.JFrame {
         jTextArea9.setColumns(20);
         jTextArea9.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea9.setRows(5);
-        jTextArea9.setText("Relaciona una beca con \nDOCUMENTOS,BENEFICIOS \n     y REQUISITOS.");
+        jTextArea9.setText("Inscribe becas a una\nconvocatoria");
         jTextArea9.setOpaque(false);
-        jPanel1.add(jTextArea9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 190, 80));
+        jPanel1.add(jTextArea9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 190, 80));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 500));
 
