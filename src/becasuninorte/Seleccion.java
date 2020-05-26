@@ -5,6 +5,7 @@
  */
 package becasuninorte;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -221,7 +222,7 @@ public class Seleccion extends javax.swing.JFrame {
         NombreBeca = String.valueOf(becas.getValueAt(seleccionado, 1));
         String[] vPer = {"id", "Identificación", "Nombre", "Primer apellido", "Segundo apellido", "tipo"};
         String comand = "";
-        
+
         switch (t) {
             case "Preseleccionados":
                 comand = "SELECT p.id,p.identificacion,p.nombre,p.apellido1,p.apellido2,aa.tipo_persona FROM persona p inner join aspira_a aa on(aa.id_persona=p.id) where (aa.id_convocatoria=" + idConv + " and aa.id_beca=" + idBecaTable + " and aa.tipo_persona='Aspirante')";
@@ -233,41 +234,69 @@ public class Seleccion extends javax.swing.JFrame {
                 comand = "SELECT p.id,p.identificacion,p.nombre,p.apellido1,p.apellido2,aa.tipo_persona FROM persona p inner join aspira_a aa on(aa.id_persona=p.id) where (aa.id_convocatoria=" + idConv + " and aa.id_beca=" + idBecaTable + " and aa.tipo_persona='Candidato')";
                 break;
         }
-        DefaultTableModel var=DB.query(comand, vPer);
+        DefaultTableModel var = DB.query(comand, vPer);
         var.addColumn("seleccionado");
         personas.setModel(var);
-        personas.getColumnModel().getColumn(6).setCellEditor(personas.getDefaultEditor(Boolean.class));         
+        personas.getColumnModel().getColumn(6).setCellEditor(personas.getDefaultEditor(Boolean.class));
         personas.getColumnModel().getColumn(6).setCellRenderer(personas.getDefaultRenderer(Boolean.class));
-        
-
     }//GEN-LAST:event_becasMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String comand;
-        String condicion="";
-        switch (t) {
-            case "Preseleccionados":
-                condicion="'Preseleccionado'";
-                break;
-            case "Candidatos":
-                condicion="'Candidato'";
-                break;
-            case "Becados":
-                condicion="'Becado'";
-                break;
-        }
-        
+        String condicion = "";
+        int cont = 0;
         for (int i = 0; i < personas.getModel().getRowCount(); i++) {
-            
-            if(personas.getValueAt(i, 6)!=null){
-                comand = "update aspira_a set tipo_persona="+condicion+" where id_persona="+personas.getValueAt(i, 0);
-                DB.ejecutar(comand);
+            if (personas.getValueAt(i, 6) != null) {
+                cont++;
             }
         }
-        
-        
-        
+        int cupos;
+        switch (t) {
+            case "Preseleccionados":
+                condicion = "'Preseleccionado'";
+                cupos = Integer.parseInt(becas.getValueAt(becas.getSelectedRow(), 2).toString());
+                if (cont <= cupos + 5) {
+                    for (int i = 0; i < personas.getModel().getRowCount(); i++) {
+                        if (personas.getValueAt(i, 6) != null) {
+                            comand = "update aspira_a set tipo_persona=" + condicion + " where id_persona=" + personas.getValueAt(i, 0);
+                            DB.ejecutar(comand);
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "El número de preseleccionados debe ser el número de cupos mas 5", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+                break;
+            case "Candidatos":
+                condicion = "'Candidato'";
+                cupos = Integer.parseInt(becas.getValueAt(becas.getSelectedRow(), 2).toString());
+                if (cont <= cupos) {
+                    for (int i = 0; i < personas.getModel().getRowCount(); i++) {
+                        if (personas.getValueAt(i, 6) != null) {
+                            comand = "update aspira_a set tipo_persona=" + condicion + " where id_persona=" + personas.getValueAt(i, 0);
+                            DB.ejecutar(comand);
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "El número de candidatos debe ser igual al numero de cupos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+                break;
+            case "Becados":
+                condicion = "'Becado'";
+                cupos = Integer.parseInt(becas.getValueAt(becas.getSelectedRow(), 2).toString());
+                if (cont <= cupos) {
+                    for (int i = 0; i < personas.getModel().getRowCount(); i++) {
+                        if (personas.getValueAt(i, 6) != null) {
+                            comand = "update aspira_a set tipo_persona=" + condicion + " where id_persona=" + personas.getValueAt(i, 0);
+                            DB.ejecutar(comand);
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "El número de becados debe ser igual al numero de cupos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+                break;
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

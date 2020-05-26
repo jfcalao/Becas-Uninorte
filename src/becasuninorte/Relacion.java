@@ -11,18 +11,26 @@ public class Relacion extends javax.swing.JFrame {
     static SQLclass query;
     static String nomrela;
     String idtabla1,idtabla2;
+    String NombreBeca, DesBeneficio; //beca-beneficio
+    
     public Relacion(SQLclass query, String nomrel) {
         initComponents();
+        this.setLocationRelativeTo(null);
         nomrela = nomrel;
         this.query = query;
-        this.setLocationRelativeTo(null);
+        jid1.setEditable(false);
+        jid2.setEditable(false);
         switch(nomrel){
             case "beca-beneficio":
                 titulo1.setText("Becas");
                 titulo2.setText("Beneficios");
                 id1.setText("id beca");
                 id2.setText("id beneficio");
-                
+                String v1[] = {"id", "nombre", "cupos"};
+                String v2[] = {"id", "descripción"};
+                tabla1.setModel(query.query("select * from beca", v1));
+                tabla2.setModel(query.query("select * from beneficio", v2));
+                break;
         }
     }
 
@@ -41,8 +49,8 @@ public class Relacion extends javax.swing.JFrame {
         titulo1 = new javax.swing.JLabel();
         id1 = new javax.swing.JLabel();
         id2 = new javax.swing.JLabel();
-        idBeca = new javax.swing.JTextField();
-        idBeneficio = new javax.swing.JTextField();
+        jid1 = new javax.swing.JTextField();
+        jid2 = new javax.swing.JTextField();
         Join = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -220,8 +228,8 @@ public class Relacion extends javax.swing.JFrame {
                                 .addComponent(id1)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(id2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(idBeca)
-                            .addComponent(idBeneficio)
+                            .addComponent(jid1)
+                            .addComponent(jid2)
                             .addComponent(Join, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -240,11 +248,11 @@ public class Relacion extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(id1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(idBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jid1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
                         .addComponent(id2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(idBeneficio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jid2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)
                         .addComponent(Join))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -269,7 +277,10 @@ public class Relacion extends javax.swing.JFrame {
     }//GEN-LAST:event_JoinActionPerformed
 
     private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla1MouseClicked
-        
+        switch(nomrela){
+            case "beca-beneficio":
+                
+        }
     }//GEN-LAST:event_tabla1MouseClicked
 
     private void tabla2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla2MouseClicked
@@ -321,14 +332,14 @@ public class Relacion extends javax.swing.JFrame {
     private javax.swing.JButton Return;
     private javax.swing.JLabel id1;
     private javax.swing.JLabel id2;
-    private javax.swing.JTextField idBeca;
-    private javax.swing.JTextField idBeneficio;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField jid1;
+    private javax.swing.JTextField jid2;
     private javax.swing.JTable tabla1;
     private javax.swing.JTable tabla2;
     private javax.swing.JTable tabla3;

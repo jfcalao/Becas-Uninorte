@@ -35,9 +35,9 @@ public class Comportamiento extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        hijoId = new javax.swing.JTextField();
-        hijoNom = new javax.swing.JTextField();
-        hijoDe = new javax.swing.JTextField();
+        campo3 = new javax.swing.JTextField();
+        campo1 = new javax.swing.JTextField();
+        campo2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -49,9 +49,9 @@ public class Comportamiento extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        campo6 = new javax.swing.JTextField();
-        campo4 = new javax.swing.JTextField();
-        campo5 = new javax.swing.JTextField();
+        campo9 = new javax.swing.JTextField();
+        campo7 = new javax.swing.JTextField();
+        campo8 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -61,9 +61,9 @@ public class Comportamiento extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 0, 0));
 
-        hijoDe.addActionListener(new java.awt.event.ActionListener() {
+        campo2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hijoDeActionPerformed(evt);
+                campo2ActionPerformed(evt);
             }
         });
 
@@ -113,10 +113,10 @@ public class Comportamiento extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(hijoNom, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(hijoId, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(campo1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(campo3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(hijoDe, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(campo2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(2, 2, 2))))
                             .addComponent(jLabel5)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -133,15 +133,15 @@ public class Comportamiento extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hijoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hijoNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hijoDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
@@ -190,12 +190,12 @@ public class Comportamiento extends javax.swing.JFrame {
         jLabel1.setText("Comportamientos");
         jPanel2.add(jLabel1);
         jLabel1.setBounds(100, 20, 170, 43);
-        jPanel2.add(campo6);
-        campo6.setBounds(60, 270, 79, 20);
-        jPanel2.add(campo4);
-        campo4.setBounds(150, 270, 73, 20);
-        jPanel2.add(campo5);
-        campo5.setBounds(230, 270, 74, 20);
+        jPanel2.add(campo9);
+        campo9.setBounds(60, 270, 79, 20);
+        jPanel2.add(campo7);
+        campo7.setBounds(150, 270, 73, 20);
+        jPanel2.add(campo8);
+        campo8.setBounds(230, 270, 74, 20);
 
         jButton3.setText("Actualizar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -245,16 +245,16 @@ public class Comportamiento extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void hijoDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hijoDeActionPerformed
+    private void campo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_hijoDeActionPerformed
+    }//GEN-LAST:event_campo2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if (JOptionPane.showConfirmDialog(null, "¿Confirma insertar al comportamiento " + hijoNom.getText() + " con id=" + hijoId.getText() + " y detalle:" + hijoDe.getText()) == 0) {
-            String id = hijoId.getText();
-            String nom = "'"+hijoNom.getText()+"'";
-            String detalle = "'"+hijoDe.getText()+"'";
+        if (JOptionPane.showConfirmDialog(null, "¿Confirma insertar al comportamiento " + campo1.getText() + " con id=" + campo3.getText() + " y detalle:" + campo2.getText()) == 0) {
+            String id = campo3.getText();
+            String nom = "'"+campo1.getText()+"'";
+            String detalle = "'"+campo2.getText()+"'";
             if (nom.equals("")) {
                 nom = null;
 
@@ -269,9 +269,9 @@ public class Comportamiento extends javax.swing.JFrame {
             System.out.println(comand);
             query.ejecutar(comand);
             tabla1.setModel(query.query("select * from comportamiento", v));
-            hijoId.setText("");
-            hijoNom.setText("");
-            hijoDe.setText("");
+            campo3.setText("");
+            campo1.setText("");
+            campo2.setText("");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -291,13 +291,13 @@ String idTable,nomTable,detalleTable;
         jLabel6.setVisible(true);
         int seleccionado = tabla1.rowAtPoint(evt.getPoint());
         idTable = String.valueOf(tabla1.getValueAt(seleccionado, 0));
-        campo6.setText(idTable);
+        campo9.setText(idTable);
 
         nomTable = String.valueOf(tabla1.getValueAt(seleccionado, 1));
-        campo4.setText(nomTable);
+        campo7.setText(nomTable);
 
         detalleTable = String.valueOf(tabla1.getValueAt(seleccionado, 2));
-        campo5.setText(detalleTable);
+        campo8.setText(detalleTable);
     }//GEN-LAST:event_tabla1MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -305,11 +305,11 @@ String idTable,nomTable,detalleTable;
 
         if (JOptionPane.showConfirmDialog(null, "¿Confirma actualizar el comportamiento: " + nomTable + " con id=" + idTable + " y descripción" + detalleTable) == 0) {
             
-            String p = "update comportamiento set detalle=" + campo5.getText() + ", nombre=" + campo4.getText() + "where id=" + idTable;
+            String p = "update comportamiento set detalle=" + campo8.getText() + ", nombre=" + campo7.getText() + "where id=" + idTable;
             System.out.println(p);
-            String id=campo6.getText();
-            String detalle="'"+campo5.getText()+"'";
-            String nom="'" + campo4.getText() + "'";
+            String id=campo9.getText();
+            String detalle="'"+campo8.getText()+"'";
+            String nom="'" + campo7.getText() + "'";
             if(id.equals("")){
                 id=null;
             }if(detalle.equals("")){
@@ -377,12 +377,12 @@ String idTable,nomTable,detalleTable;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField campo4;
-    private javax.swing.JTextField campo5;
-    private javax.swing.JTextField campo6;
-    private javax.swing.JTextField hijoDe;
-    private javax.swing.JTextField hijoId;
-    private javax.swing.JTextField hijoNom;
+    private javax.swing.JTextField campo1;
+    private javax.swing.JTextField campo2;
+    private javax.swing.JTextField campo3;
+    private javax.swing.JTextField campo7;
+    private javax.swing.JTextField campo8;
+    private javax.swing.JTextField campo9;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

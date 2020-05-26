@@ -21,7 +21,7 @@ public class Beca extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.query = query;
-        Becas_table.setModel(query.query("select * from beca", v));
+        tabla1.setModel(query.query("select * from beca", v));
     }
 
     /**
@@ -37,21 +37,21 @@ public class Beca extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        IdBeca = new javax.swing.JTextField();
-        NombreBeca = new javax.swing.JTextField();
+        campo1 = new javax.swing.JTextField();
+        campo2 = new javax.swing.JTextField();
         Insertar_button = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        CuposBeca = new javax.swing.JTextField();
+        campo3 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Becas_table = new javax.swing.JTable();
-        idNew = new javax.swing.JTextField();
-        cuposNew = new javax.swing.JTextField();
+        tabla1 = new javax.swing.JTable();
+        campo4 = new javax.swing.JTextField();
+        campo6 = new javax.swing.JTextField();
         Actualizar_button = new javax.swing.JButton();
         Borrar_button = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        nombreNew = new javax.swing.JTextField();
+        campo5 = new javax.swing.JTextField();
         Return = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,9 +67,9 @@ public class Beca extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Nombre:");
 
-        IdBeca.addKeyListener(new java.awt.event.KeyAdapter() {
+        campo1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                IdBecaKeyTyped(evt);
+                campo1KeyTyped(evt);
             }
         });
 
@@ -83,9 +83,9 @@ public class Beca extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Cupos:");
 
-        CuposBeca.addKeyListener(new java.awt.event.KeyAdapter() {
+        campo3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                CuposBecaKeyTyped(evt);
+                campo3KeyTyped(evt);
             }
         });
 
@@ -104,16 +104,16 @@ public class Beca extends javax.swing.JFrame {
                             .addGroup(InserciónLayout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(18, 18, 18)
-                                .addComponent(CuposBeca, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(campo3, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InserciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(InserciónLayout.createSequentialGroup()
                                     .addComponent(jLabel2)
                                     .addGap(18, 18, 18)
-                                    .addComponent(IdBeca, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(campo1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(InserciónLayout.createSequentialGroup()
                                     .addComponent(jLabel3)
                                     .addGap(18, 18, 18)
-                                    .addComponent(NombreBeca, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(campo2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(InserciónLayout.createSequentialGroup()
                         .addGap(123, 123, 123)
                         .addComponent(Insertar_button)))
@@ -127,15 +127,15 @@ public class Beca extends javax.swing.JFrame {
                 .addGap(57, 57, 57)
                 .addGroup(InserciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(IdBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(InserciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(NombreBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(InserciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(CuposBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(Insertar_button)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -146,7 +146,7 @@ public class Beca extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Becas");
 
-        Becas_table.setModel(new javax.swing.table.DefaultTableModel(
+        tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -154,22 +154,22 @@ public class Beca extends javax.swing.JFrame {
 
             }
         ));
-        Becas_table.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabla1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Becas_tableMouseClicked(evt);
+                tabla1MouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(Becas_table);
+        jScrollPane1.setViewportView(tabla1);
 
-        idNew.addKeyListener(new java.awt.event.KeyAdapter() {
+        campo4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                idNewKeyTyped(evt);
+                campo4KeyTyped(evt);
             }
         });
 
-        cuposNew.addKeyListener(new java.awt.event.KeyAdapter() {
+        campo6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                cuposNewKeyTyped(evt);
+                campo6KeyTyped(evt);
             }
         });
 
@@ -206,11 +206,11 @@ public class Beca extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(idNew, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(campo4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(nombreNew)
+                                .addComponent(campo5)
                                 .addGap(18, 18, 18)
-                                .addComponent(cuposNew, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(campo6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(Actualizar_button)
                                 .addGap(18, 18, 18)
@@ -232,9 +232,9 @@ public class Beca extends javax.swing.JFrame {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cuposNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombreNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campo6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campo5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Actualizar_button)
@@ -259,7 +259,6 @@ public class Beca extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Return)
                         .addContainerGap())))
         );
@@ -277,54 +276,54 @@ public class Beca extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void IdBecaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IdBecaKeyTyped
+    private void campo1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo1KeyTyped
         char validar = evt.getKeyChar();
         if (Character.isLetter(validar)) {
             getToolkit().beep();
             evt.consume();
         }
-    }//GEN-LAST:event_IdBecaKeyTyped
+    }//GEN-LAST:event_campo1KeyTyped
 
     private void Insertar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Insertar_buttonActionPerformed
-        String id = IdBeca.getText();
-        String nombre = "'" + NombreBeca.getText() + "'";
-        String cupos = CuposBeca.getText();
+        String id = campo1.getText();
+        String nombre = "'" + campo2.getText() + "'";
+        String cupos = campo3.getText();
         if (nombre.equals("''") || id.equals("") || cupos.equals("")) {
             JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos");
         } else {
-            if (JOptionPane.showConfirmDialog(null, "¿Confirma insertar la beca " + NombreBeca.getText()
-                    + " con id=" + IdBeca.getText() + " y " + CuposBeca.getText() + " cupos") == 0) {
+            if (JOptionPane.showConfirmDialog(null, "¿Confirma insertar la beca " + campo2.getText()
+                    + " con id=" + campo1.getText() + " y " + campo3.getText() + " cupos") == 0) {
                 String comand = "insert into beca values (" + id + "," + nombre + "," + cupos + ")";
                 System.out.println(comand);
                 query.ejecutar(comand);
-                Becas_table.setModel(query.query("select * from beca", v));
-                IdBeca.setText("");
-                NombreBeca.setText("");
-                CuposBeca.setText("");
+                tabla1.setModel(query.query("select * from beca", v));
+                campo1.setText("");
+                campo2.setText("");
+                campo3.setText("");
             }
         }
 
 
     }//GEN-LAST:event_Insertar_buttonActionPerformed
 
-    private void Becas_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Becas_tableMouseClicked
+    private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla1MouseClicked
 
         jLabel6.setVisible(true);
-        int seleccionado = Becas_table.rowAtPoint(evt.getPoint());
-        idTable = String.valueOf(Becas_table.getValueAt(seleccionado, 0));
-        idNew.setText(idTable);
+        int seleccionado = tabla1.rowAtPoint(evt.getPoint());
+        idTable = String.valueOf(tabla1.getValueAt(seleccionado, 0));
+        campo4.setText(idTable);
 
-        nomTable = String.valueOf(Becas_table.getValueAt(seleccionado, 1));
-        nombreNew.setText(nomTable);
+        nomTable = String.valueOf(tabla1.getValueAt(seleccionado, 1));
+        campo5.setText(nomTable);
 
-        cuposTable = String.valueOf(Becas_table.getValueAt(seleccionado, 2));
-        cuposNew.setText(cuposTable);
-    }//GEN-LAST:event_Becas_tableMouseClicked
+        cuposTable = String.valueOf(tabla1.getValueAt(seleccionado, 2));
+        campo6.setText(cuposTable);
+    }//GEN-LAST:event_tabla1MouseClicked
 
     private void Actualizar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Actualizar_buttonActionPerformed
-        String id = idNew.getText();
-        String nombre = "'" + nombreNew.getText() + "'";
-        String cupos = cuposNew.getText();
+        String id = campo4.getText();
+        String nombre = "'" + campo5.getText() + "'";
+        String cupos = campo6.getText();
 
         if (idTable == null) {
             JOptionPane.showMessageDialog(null, "Debe elegir una beca a actualizar");
@@ -332,7 +331,7 @@ public class Beca extends javax.swing.JFrame {
             if (nombre.equals("''") || id.equals("") || cupos.equals("")) {
                 JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos");
             } else {
-                if (idTable.equals(id) && nomTable.equals(nombreNew.getText()) && cuposTable.equals(cupos)) {
+                if (idTable.equals(id) && nomTable.equals(campo5.getText()) && cuposTable.equals(cupos)) {
                     JOptionPane.showMessageDialog(null, "Lo digitado en los campos de texto es igual"
                             + "a los valores registrados dentro de la base de datos");
 
@@ -343,10 +342,10 @@ public class Beca extends javax.swing.JFrame {
                         System.out.println(p);
                         query.ejecutar(p);
                         System.out.println("Ejecutado ");
-                        Becas_table.setModel(query.query("select * from beca", v));
-                        idNew.setText("");
-                        nombreNew.setText("");
-                        cuposNew.setText("");
+                        tabla1.setModel(query.query("select * from beca", v));
+                        campo4.setText("");
+                        campo5.setText("");
+                        campo6.setText("");
                     }
                 }
             }
@@ -362,7 +361,7 @@ public class Beca extends javax.swing.JFrame {
             if (JOptionPane.showConfirmDialog(null, "¿Confirma borrar la beca " + nomTable
                     + " con id=" + idTable + " y " + cuposTable + " cupos") == 0) {
                 query.ejecutar("delete from beca where id=" + idTable);
-                Becas_table.setModel(query.query("select * from beca", v));
+                tabla1.setModel(query.query("select * from beca", v));
             } else {
                 System.out.println("No borro");
             }
@@ -375,29 +374,29 @@ public class Beca extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_ReturnActionPerformed
 
-    private void CuposBecaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CuposBecaKeyTyped
+    private void campo3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo3KeyTyped
         char validar = evt.getKeyChar();
         if (Character.isLetter(validar)) {
             getToolkit().beep();
             evt.consume();
         }
-    }//GEN-LAST:event_CuposBecaKeyTyped
+    }//GEN-LAST:event_campo3KeyTyped
 
-    private void idNewKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idNewKeyTyped
+    private void campo4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo4KeyTyped
         char validar = evt.getKeyChar();
         if (Character.isLetter(validar)) {
             getToolkit().beep();
             evt.consume();
         }
-    }//GEN-LAST:event_idNewKeyTyped
+    }//GEN-LAST:event_campo4KeyTyped
 
-    private void cuposNewKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cuposNewKeyTyped
+    private void campo6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo6KeyTyped
         char validar = evt.getKeyChar();
         if (Character.isLetter(validar)) {
             getToolkit().beep();
             evt.consume();
         }
-    }//GEN-LAST:event_cuposNewKeyTyped
+    }//GEN-LAST:event_campo6KeyTyped
 
     /**
      * @param args the command line arguments
@@ -436,16 +435,16 @@ public class Beca extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actualizar_button;
-    private javax.swing.JTable Becas_table;
     private javax.swing.JButton Borrar_button;
-    private javax.swing.JTextField CuposBeca;
-    private javax.swing.JTextField IdBeca;
     private javax.swing.JPanel Inserción;
     private javax.swing.JButton Insertar_button;
-    private javax.swing.JTextField NombreBeca;
     private javax.swing.JButton Return;
-    private javax.swing.JTextField cuposNew;
-    private javax.swing.JTextField idNew;
+    private javax.swing.JTextField campo1;
+    private javax.swing.JTextField campo2;
+    private javax.swing.JTextField campo3;
+    private javax.swing.JTextField campo4;
+    private javax.swing.JTextField campo5;
+    private javax.swing.JTextField campo6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -454,6 +453,6 @@ public class Beca extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nombreNew;
+    private javax.swing.JTable tabla1;
     // End of variables declaration//GEN-END:variables
 }

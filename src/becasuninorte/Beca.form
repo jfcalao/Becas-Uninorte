@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -29,7 +29,6 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="Return" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -74,18 +73,18 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="CuposBeca" min="-2" pref="202" max="-2" attributes="0"/>
+                                  <Component id="campo3" min="-2" pref="202" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="IdBeca" min="-2" pref="202" max="-2" attributes="0"/>
+                                      <Component id="campo1" min="-2" pref="202" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="NombreBeca" min="-2" pref="202" max="-2" attributes="0"/>
+                                      <Component id="campo2" min="-2" pref="202" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -107,17 +106,17 @@
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="IdBeca" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campo1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="NombreBeca" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campo2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CuposBeca" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campo3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="Insertar_button" min="-2" max="-2" attributes="0"/>
@@ -151,12 +150,12 @@
             <Property name="text" type="java.lang.String" value="Nombre:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="IdBeca">
+        <Component class="javax.swing.JTextField" name="campo1">
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="IdBecaKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campo1KeyTyped"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="NombreBeca">
+        <Component class="javax.swing.JTextField" name="campo2">
         </Component>
         <Component class="javax.swing.JButton" name="Insertar_button">
           <Properties>
@@ -174,9 +173,9 @@
             <Property name="text" type="java.lang.String" value="Cupos:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="CuposBeca">
+        <Component class="javax.swing.JTextField" name="campo3">
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="CuposBecaKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campo3KeyTyped"/>
           </Events>
         </Component>
       </SubComponents>
@@ -203,11 +202,11 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="idNew" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="campo4" min="-2" pref="50" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="nombreNew" max="32767" attributes="0"/>
+                                  <Component id="campo5" max="32767" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="cuposNew" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="campo6" min="-2" pref="60" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="Actualizar_button" min="-2" max="-2" attributes="0"/>
@@ -237,9 +236,9 @@
                   <Component id="jLabel6" min="-2" pref="14" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="idNew" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cuposNew" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="nombreNew" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campo4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campo6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campo5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -267,7 +266,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="Becas_table">
+            <Component class="javax.swing.JTable" name="tabla1">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="0" rowCount="0"/>
@@ -277,19 +276,19 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Becas_tableMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tabla1MouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="idNew">
+        <Component class="javax.swing.JTextField" name="campo4">
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="idNewKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campo4KeyTyped"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="cuposNew">
+        <Component class="javax.swing.JTextField" name="campo6">
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cuposNewKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campo6KeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Actualizar_button">
@@ -319,7 +318,7 @@
             <Property name="text" type="java.lang.String" value="Edite estos campos y pulse actualizar si desea cambiar datos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="nombreNew">
+        <Component class="javax.swing.JTextField" name="campo5">
         </Component>
       </SubComponents>
     </Container>
