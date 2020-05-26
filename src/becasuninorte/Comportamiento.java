@@ -22,7 +22,7 @@ public class Comportamiento extends javax.swing.JFrame {
         initComponents();
         
         this.query=query;
-        behaviors.setModel(query.query("select * from comportamiento", v));
+        tabla1.setModel(query.query("select * from comportamiento", v));
     }
 
     /**
@@ -47,11 +47,11 @@ public class Comportamiento extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        behaviors = new javax.swing.JTable();
+        tabla1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        idNew = new javax.swing.JTextField();
-        nomNew = new javax.swing.JTextField();
-        detalleNew = new javax.swing.JTextField();
+        campo6 = new javax.swing.JTextField();
+        campo4 = new javax.swing.JTextField();
+        campo5 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -160,13 +160,13 @@ public class Comportamiento extends javax.swing.JFrame {
         jPanel2.add(jButton1);
         jButton1.setBounds(290, 330, 80, 23);
 
-        behaviors = new javax.swing.JTable(){
+        tabla1 = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false;
             }
 
         };
-        behaviors.setModel(new javax.swing.table.DefaultTableModel(
+        tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -174,14 +174,14 @@ public class Comportamiento extends javax.swing.JFrame {
 
             }
         ));
-        behaviors.setFocusable(false);
-        behaviors.getTableHeader().setReorderingAllowed(false);
-        behaviors.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabla1.setFocusable(false);
+        tabla1.getTableHeader().setReorderingAllowed(false);
+        tabla1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                behaviorsMouseClicked(evt);
+                tabla1MouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(behaviors);
+        jScrollPane2.setViewportView(tabla1);
 
         jPanel2.add(jScrollPane2);
         jScrollPane2.setBounds(58, 72, 242, 180);
@@ -190,12 +190,12 @@ public class Comportamiento extends javax.swing.JFrame {
         jLabel1.setText("Comportamientos");
         jPanel2.add(jLabel1);
         jLabel1.setBounds(100, 20, 170, 43);
-        jPanel2.add(idNew);
-        idNew.setBounds(60, 270, 79, 20);
-        jPanel2.add(nomNew);
-        nomNew.setBounds(150, 270, 73, 20);
-        jPanel2.add(detalleNew);
-        detalleNew.setBounds(230, 270, 74, 20);
+        jPanel2.add(campo6);
+        campo6.setBounds(60, 270, 79, 20);
+        jPanel2.add(campo4);
+        campo4.setBounds(150, 270, 73, 20);
+        jPanel2.add(campo5);
+        campo5.setBounds(230, 270, 74, 20);
 
         jButton3.setText("Actualizar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -268,7 +268,7 @@ public class Comportamiento extends javax.swing.JFrame {
             String comand = "insert into comportamiento (id,nombre,detalle) values (" + id + ", " + nom + "," + detalle + ")";
             System.out.println(comand);
             query.ejecutar(comand);
-            behaviors.setModel(query.query("select * from comportamiento", v));
+            tabla1.setModel(query.query("select * from comportamiento", v));
             hijoId.setText("");
             hijoNom.setText("");
             hijoDe.setText("");
@@ -286,30 +286,30 @@ public class Comportamiento extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 String idTable,nomTable,detalleTable;
-    private void behaviorsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_behaviorsMouseClicked
+    private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla1MouseClicked
         // TODO add your handling code here:
         jLabel6.setVisible(true);
-        int seleccionado = behaviors.rowAtPoint(evt.getPoint());
-        idTable = String.valueOf(behaviors.getValueAt(seleccionado, 0));
-        idNew.setText(idTable);
+        int seleccionado = tabla1.rowAtPoint(evt.getPoint());
+        idTable = String.valueOf(tabla1.getValueAt(seleccionado, 0));
+        campo6.setText(idTable);
 
-        nomTable = String.valueOf(behaviors.getValueAt(seleccionado, 1));
-        nomNew.setText(nomTable);
+        nomTable = String.valueOf(tabla1.getValueAt(seleccionado, 1));
+        campo4.setText(nomTable);
 
-        detalleTable = String.valueOf(behaviors.getValueAt(seleccionado, 2));
-        detalleNew.setText(detalleTable);
-    }//GEN-LAST:event_behaviorsMouseClicked
+        detalleTable = String.valueOf(tabla1.getValueAt(seleccionado, 2));
+        campo5.setText(detalleTable);
+    }//GEN-LAST:event_tabla1MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
 
         if (JOptionPane.showConfirmDialog(null, "¿Confirma actualizar el comportamiento: " + nomTable + " con id=" + idTable + " y descripción" + detalleTable) == 0) {
             
-            String p = "update comportamiento set detalle=" + detalleNew.getText() + ", nombre=" + nomNew.getText() + "where id=" + idTable;
+            String p = "update comportamiento set detalle=" + campo5.getText() + ", nombre=" + campo4.getText() + "where id=" + idTable;
             System.out.println(p);
-            String id=idNew.getText();
-            String detalle="'"+detalleNew.getText()+"'";
-            String nom="'" + nomNew.getText() + "'";
+            String id=campo6.getText();
+            String detalle="'"+campo5.getText()+"'";
+            String nom="'" + campo4.getText() + "'";
             if(id.equals("")){
                 id=null;
             }if(detalle.equals("")){
@@ -320,7 +320,7 @@ String idTable,nomTable,detalleTable;
             query.ejecutar("update comportamiento set id=" + id + ", nombre=" + nom + ", detalle=" + detalle + " where id=" + idTable);
             System.out.println("Ejecutado ");
             //id="+idNew.getText()+",
-            behaviors.setModel(query.query("select * from comportamiento",v));
+            tabla1.setModel(query.query("select * from comportamiento",v));
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -328,7 +328,7 @@ String idTable,nomTable,detalleTable;
         // TODO add your handling code here:
         if (JOptionPane.showConfirmDialog(null, "¿Confirma borrar el comportamiento " + nomTable + " con id=" + idTable + " y detalle: " + detalleTable) == 0) {
             query.ejecutar("delete from comportamiento where id=" + idTable);
-            behaviors.setModel(query.query("select * from comportamiento", v));
+            tabla1.setModel(query.query("select * from comportamiento", v));
         } else {
             System.out.println("No borro");
         }
@@ -377,12 +377,12 @@ String idTable,nomTable,detalleTable;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable behaviors;
-    private javax.swing.JTextField detalleNew;
+    private javax.swing.JTextField campo4;
+    private javax.swing.JTextField campo5;
+    private javax.swing.JTextField campo6;
     private javax.swing.JTextField hijoDe;
     private javax.swing.JTextField hijoId;
     private javax.swing.JTextField hijoNom;
-    private javax.swing.JTextField idNew;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -398,6 +398,6 @@ String idTable,nomTable,detalleTable;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField nomNew;
+    private javax.swing.JTable tabla1;
     // End of variables declaration//GEN-END:variables
 }
