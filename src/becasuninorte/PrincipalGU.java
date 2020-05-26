@@ -542,8 +542,9 @@ public class PrincipalGU extends javax.swing.JFrame {
     }//GEN-LAST:event_becasMousePressed
 
     private void beneficiosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_beneficiosMousePressed
-        Beneficios vista2 = new Beneficios(DB);
+        BCDDGU vista2 = new BCDDGU(3,DB);
         vista2.setVisible(true);
+        
     }//GEN-LAST:event_beneficiosMousePressed
 
     private void comportamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comportamientoMousePressed
@@ -557,7 +558,7 @@ public class PrincipalGU extends javax.swing.JFrame {
     }//GEN-LAST:event_convocatoriaMousePressed
 
     private void jButton9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MousePressed
-        Diagnostico vista5 = new Diagnostico(DB);
+        BCDDGU vista5 = new BCDDGU(4,DB);
         vista5.setVisible(true);
     }//GEN-LAST:event_jButton9MousePressed
 
