@@ -23,6 +23,7 @@ public class IngresaPersona extends javax.swing.JFrame {
 
     public IngresaPersona(SQLclass database) {
         initComponents();
+        this.setLocationRelativeTo(null);
         DB = database;
     }
 
@@ -36,6 +37,7 @@ public class IngresaPersona extends javax.swing.JFrame {
     private void initComponents() {
 
         grupoboton = new javax.swing.ButtonGroup();
+        jButton5 = new javax.swing.JButton();
         id = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -60,6 +62,14 @@ public class IngresaPersona extends javax.swing.JFrame {
         ciudad = new javax.swing.JTextField();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
+        jButton6 = new javax.swing.JButton();
+
+        jButton5.setText(" Atras");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,6 +124,13 @@ public class IngresaPersona extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setText(" Atras");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,13 +179,18 @@ public class IngresaPersona extends javax.swing.JFrame {
                             .addComponent(identificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(apellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(apellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(apellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton6)))
                 .addContainerGap(117, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(13, 13, 13)
+                .addComponent(jButton6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -230,12 +252,24 @@ public class IngresaPersona extends javax.swing.JFrame {
                 s = boton.getText();
             }
         }
-        DB.ejecutar("INSERT INTO persona (id,identificacion,nombre,apellido1,apellido2,ciudad,direccion,telefono,fecha_nacimiento,sexo) VALUES(" + id.getText() + "," + identificacion.getText() + ",'" + nombre.getText() + "','" + apellido1.getText() + "','" + apellido2.getText() + "','" + ciudad.getText() + "','" + direccion.getText() + "'," + telefono.getText() + ",TO_DATE('"+fechanacimiento.getText()+"','YYYY/MM/DD'),'" + s + "');");
+        DB.ejecutar("INSERT INTO persona (id,identificacion,nombre,apellido1,apellido2,ciudad,direccion,telefono,fecha_nacimiento,sexo) VALUES(" + id.getText() + "," + identificacion.getText() + ",'" + nombre.getText() + "','" + apellido1.getText() + "','" + apellido2.getText() + "','" + ciudad.getText() + "','" + direccion.getText() + "'," + telefono.getText() + ",TO_DATE('"+fechanacimiento.getText()+"','YYYY/MM/DD'),'" + s + "')");
     }//GEN-LAST:event_insertarActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        Principal vista = new Principal(DB);
+        vista.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        Principal vista = new Principal(DB);
+        vista.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,6 +317,8 @@ public class IngresaPersona extends javax.swing.JFrame {
     private javax.swing.JTextField id;
     private javax.swing.JTextField identificacion;
     private javax.swing.JButton insertar;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

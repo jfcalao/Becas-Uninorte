@@ -1,7 +1,7 @@
 package becasuninorte;
 
 import com.sun.awt.AWTUtilities;
-
+import org.xml.sax.Attributes;
 /**
  *
  * @author gguerreroa
@@ -77,6 +77,11 @@ public class Login extends javax.swing.JFrame {
                 conectarMousePressed(evt);
             }
         });
+        conectar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conectarActionPerformed(evt);
+            }
+        });
         getContentPane().add(conectar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 430, 150, 30));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoLogin.gif"))); // NOI18N
@@ -123,6 +128,11 @@ public class Login extends javax.swing.JFrame {
             contraseña.setText("Contraseña");
         }
     }//GEN-LAST:event_contraseñaFocusLost
+                                    
+    private void conectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conectarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_conectarActionPerformed
+
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
