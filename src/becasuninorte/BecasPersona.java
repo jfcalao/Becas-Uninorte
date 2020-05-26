@@ -133,7 +133,7 @@ public class BecasPersona extends javax.swing.JFrame {
         jScrollPane2.setViewportView(Beneficios_table);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setText("Persona");
+        jLabel4.setText("Convocatorias");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

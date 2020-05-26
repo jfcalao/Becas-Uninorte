@@ -211,6 +211,7 @@ public class Principal extends javax.swing.JFrame {
         
         Seleccion vista = new Seleccion(DB,combo2.getSelectedItem().toString());
         vista.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

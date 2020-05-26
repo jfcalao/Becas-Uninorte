@@ -18,29 +18,28 @@ public class Seleccion extends javax.swing.JFrame {
      */
     static String t;
     static SQLclass DB;
+    String idConv;
+    DefaultTableModel m;
+
     public Seleccion(SQLclass database, String texto) {
         initComponents();
         this.setLocationRelativeTo(null);
         DB = database;
+        String[] v1 = {"id", "per"};
+        m = DB.query("SELECT id,periodo_academico FROM convocatoria", v1);
         t = texto;
-        titulo.setText("Seleccione a los "+t);
-        String[] v1 = {"per"};
-        DefaultTableModel m = DB.query("SELECT periodo_academico FROM convocatoria", v1);
+
+        titulo.setText("Seleccione a los " + t);
+
         for (int i = 0; i < m.getRowCount(); i++) {
-            combo.addItem(m.getValueAt(i,0).toString());
+            combo.addItem(m.getValueAt(i, 1).toString());
         }
-        String[] v = {"id","Nombre","Cupos"};
-        int index=combo.getSelectedIndex();
-        String idConv=m.getValueAt(index, 0).toString();
-        select b.id, b.nombre, b.cupos from beca b inner join pertenece_a pa on (b.id=pa.id_beca) where pa.id_convocatoria=idConv;
-        
-        String[] v2 = {"id","Identificación","Nombre","Primer apellido","Segundo apellido"};
-        switch(texto){
-            case "Preseleccionados":
-                m = DB.query("Select id,identificacion,nombre,apellido1,apellido2 FROM persona where ", v2);
-                personas.setModel(m);
-            break;
-        }
+//        switch(texto){
+//            case "Preseleccionados":
+//                m = DB.query("Select id,identificacion,nombre,apellido1,apellido2 FROM persona where ", v2);
+//                personas.setModel(m);
+//            break;
+//        }
     }
 
     /**
@@ -96,6 +95,11 @@ public class Seleccion extends javax.swing.JFrame {
 
             }
         ));
+        becas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                becasMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(becas);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -107,6 +111,11 @@ public class Seleccion extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Periodo acedemico de convocatoria: ");
 
+        combo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboItemStateChanged(evt);
+            }
+        });
         combo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboActionPerformed(evt);
@@ -185,7 +194,43 @@ public class Seleccion extends javax.swing.JFrame {
 
     private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed
         // TODO add your handling code here:
+        String[] v = {"id", "Nombre", "Cupos"};
+        int index = combo.getSelectedIndex();
+        idConv = m.getValueAt(index, 0).toString();
+        DefaultTableModel becasT;
+        String comand = "select b.id, b.nombre, b.cupos from beca b inner join pertenece_a pa on (b.id=pa.id_beca) where pa.id_convocatoria=" + idConv;
+        becasT = DB.query(comand, v);
+        becas.setModel(becasT);
     }//GEN-LAST:event_comboActionPerformed
+
+    private void comboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboItemStateChanged
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_comboItemStateChanged
+    String idBecaTable, idBeneficioTable, NombreBeca, DesBeneficio;
+    private void becasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_becasMouseClicked
+        // TODO add your handling code here:
+        int seleccionado = becas.rowAtPoint(evt.getPoint());
+        idBecaTable = String.valueOf(becas.getValueAt(seleccionado, 0));
+        NombreBeca = String.valueOf(becas.getValueAt(seleccionado, 1));
+        String[] vPer = {"id", "Identificación", "Nombre", "Primer apellido", "Segundo apellido", "tipo"};
+        String comand = "";
+        switch (t) {
+            case "Preseleccionados":
+                comand = "SELECT p.id,p.identificacion,p.nombre,p.apellido1,p.apellido2,aa.tipo_persona FROM persona p inner join aspira_a aa on(aa.id_persona=p.id) where (aa.id_convocatoria=" + idConv + " and aa.id_beca=" + idBecaTable + " and aa.tipo_persona='Aspirante')";
+                break;
+            case "Candidatos":
+                comand = "SELECT p.id,p.identificacion,p.nombre,p.apellido1,p.apellido2,aa.tipo_persona FROM persona p inner join aspira_a aa on(aa.id_persona=p.id) where (aa.id_convocatoria=" + idConv + " and aa.id_beca=" + idBecaTable + " and aa.tipo_persona='Preseleccionado')";
+                break;
+            case "Becados":
+                comand = "SELECT p.id,p.identificacion,p.nombre,p.apellido1,p.apellido2,aa.tipo_persona FROM persona p inner join aspira_a aa on(aa.id_persona=p.id) where (aa.id_convocatoria=" + idConv + " and aa.id_beca=" + idBecaTable + " and aa.tipo_persona='Candidato')";
+                break;
+        }
+
+        personas.setModel(DB.query(comand, vPer));
+
+    }//GEN-LAST:event_becasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -217,7 +262,7 @@ public class Seleccion extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Seleccion(DB,t).setVisible(true);
+                new Seleccion(DB, t).setVisible(true);
             }
         });
     }

@@ -19,7 +19,7 @@ public class PerDiagnostico extends javax.swing.JFrame {
      */
     static SQLclass DB;
     String[] v1 = {"id","Nombre","Detalle"};
-    String[] v2 = {"id","Identificación","Nombre","Primer apellido","Segundo apellido"};
+    String[] v2 = {"id","Identificación","Nombre","Primer apellido","Segundo apellido","tipo"};
     
     public PerDiagnostico(SQLclass database) {
         initComponents();
