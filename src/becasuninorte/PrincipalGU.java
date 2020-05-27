@@ -81,6 +81,9 @@ public class PrincipalGU extends javax.swing.JFrame {
         comportamiento2 = new javax.swing.JButton();
         jTextArea13 = new javax.swing.JTextArea();
         jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jTextArea14 = new javax.swing.JTextArea();
+        jButton14 = new javax.swing.JButton();
         opciones = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -422,7 +425,7 @@ public class PrincipalGU extends javax.swing.JFrame {
                 comportamiento2MousePressed(evt);
             }
         });
-        asignar.add(comportamiento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 150, 130));
+        asignar.add(comportamiento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, 150, 130));
 
         jTextArea13.setEditable(false);
         jTextArea13.setColumns(20);
@@ -430,12 +433,32 @@ public class PrincipalGU extends javax.swing.JFrame {
         jTextArea13.setRows(5);
         jTextArea13.setText("Asigna comportamientos\na una persona.");
         jTextArea13.setOpaque(false);
-        asignar.add(jTextArea13, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, -1, -1));
+        asignar.add(jTextArea13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Comportamiento");
-        asignar.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 160, -1));
+        asignar.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 160, -1));
+
+        jLabel16.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Documentos");
+        asignar.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, 160, -1));
+
+        jTextArea14.setEditable(false);
+        jTextArea14.setColumns(20);
+        jTextArea14.setForeground(new java.awt.Color(255, 255, 255));
+        jTextArea14.setRows(5);
+        jTextArea14.setText("Asigna documentos a\nuna personas");
+        jTextArea14.setOpaque(false);
+        asignar.add(jTextArea14, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, -1, -1));
+
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/archivos-y-carpetas.png"))); // NOI18N
+        jButton14.setBorder(null);
+        jButton14.setBorderPainted(false);
+        jButton14.setContentAreaFilled(false);
+        jButton14.setFocusPainted(false);
+        asignar.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, 150, 130));
 
         cards.add(asignar, "asignar");
 
@@ -625,6 +648,7 @@ public class PrincipalGU extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton9;
@@ -634,6 +658,7 @@ public class PrincipalGU extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -648,6 +673,7 @@ public class PrincipalGU extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea11;
     private javax.swing.JTextArea jTextArea12;
     private javax.swing.JTextArea jTextArea13;
+    private javax.swing.JTextArea jTextArea14;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
