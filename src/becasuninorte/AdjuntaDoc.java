@@ -6,6 +6,7 @@
 package becasuninorte;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,19 +15,23 @@ import javax.swing.JOptionPane;
 public class AdjuntaDoc extends javax.swing.JFrame {
 
     static SQLclass query;
-    String v1[] = {"id", "nombre", "cupos"};
-    String v2[] = {"id", "descripción"};
-    String v[] = {"id_beca", "nombre_beca", "beneficio"};
-    String idBecaTable, idBeneficioTable, NombreBeca, DesBeneficio;
+    String[] v1 = {"Indice","Descripción","Tipo"};
+    String[] v2 = {"id","Identificación","Nombre","Primer apellido","Segundo apellido"};
+    String idps,idds;
+    //String idBecaTable, idBeneficioTable, NombreBeca, DesBeneficio;
 
     public AdjuntaDoc(SQLclass query) {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.idBeca.setEditable(false);
-        this.idBeneficio.setEditable(false);
+        this.idpersona.setEditable(false);
+        this.iddocumento.setEditable(false);
         this.query = query;
-        Becas_table.setModel(query.query("select * from beca", v1));
-        Beneficios_table.setModel(query.query("select * from beneficio", v2));
+        personas.setModel(query.query("SELECT id,identificacion,nombre,apellido1,apellido2 FROM persona", v2));
+        DefaultTableModel m = query.query("select * from documento", v1);
+        m.addColumn("Adjuntar");
+        documentos.setModel(m);
+        documentos.getColumnModel().getColumn(3).setCellEditor(documentos.getDefaultEditor(Boolean.class));
+        documentos.getColumnModel().getColumn(3).setCellRenderer(documentos.getDefaultRenderer(Boolean.class));
     }
 
     /**
@@ -41,20 +46,20 @@ public class AdjuntaDoc extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Becas_table = new javax.swing.JTable();
+        personas = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        Beneficios_table = new javax.swing.JTable();
+        documentos = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        Beca_beneficios_table = new javax.swing.JTable();
+        personas_documentos = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        idBeca = new javax.swing.JTextField();
-        idBeneficio = new javax.swing.JTextField();
+        idpersona = new javax.swing.JTextField();
+        iddocumento = new javax.swing.JTextField();
         Join = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -67,7 +72,7 @@ public class AdjuntaDoc extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(512, 309));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        Becas_table.setModel(new javax.swing.table.DefaultTableModel(
+        personas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -75,19 +80,19 @@ public class AdjuntaDoc extends javax.swing.JFrame {
 
             }
         ));
-        Becas_table.addMouseListener(new java.awt.event.MouseAdapter() {
+        personas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Becas_tableMouseClicked(evt);
+                personasMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(Becas_table);
+        jScrollPane1.setViewportView(personas);
 
         jPanel1.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         jLabel3.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Becas");
+        jLabel3.setText("Personas");
         jPanel1.add(jLabel3, java.awt.BorderLayout.PAGE_START);
 
         jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 440, 320));
@@ -96,7 +101,7 @@ public class AdjuntaDoc extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(512, 309));
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        Beneficios_table.setModel(new javax.swing.table.DefaultTableModel(
+        documentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -104,19 +109,19 @@ public class AdjuntaDoc extends javax.swing.JFrame {
 
             }
         ));
-        Beneficios_table.addMouseListener(new java.awt.event.MouseAdapter() {
+        documentos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Beneficios_tableMouseClicked(evt);
+                documentosMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(Beneficios_table);
+        jScrollPane2.setViewportView(documentos);
 
         jPanel2.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
         jLabel4.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Beneficios");
+        jLabel4.setText("Documentos");
         jPanel2.add(jLabel4, java.awt.BorderLayout.PAGE_START);
 
         jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(649, 11, 450, 309));
@@ -124,7 +129,7 @@ public class AdjuntaDoc extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 7, 11));
         jPanel3.setLayout(new java.awt.BorderLayout());
 
-        Beca_beneficios_table.setModel(new javax.swing.table.DefaultTableModel(
+        personas_documentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -132,40 +137,40 @@ public class AdjuntaDoc extends javax.swing.JFrame {
 
             }
         ));
-        Beca_beneficios_table.addMouseListener(new java.awt.event.MouseAdapter() {
+        personas_documentos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Beca_beneficios_tableMouseClicked(evt);
+                personas_documentosMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(Beca_beneficios_table);
+        jScrollPane3.setViewportView(personas_documentos);
 
         jPanel3.add(jScrollPane3, java.awt.BorderLayout.CENTER);
 
         jLabel5.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Beneficios de la beca seleccionada");
+        jLabel5.setText("Documentos adjuntos por la persona seleccionada");
         jPanel3.add(jLabel5, java.awt.BorderLayout.PAGE_START);
 
         jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 345, 1100, 310));
 
         jLabel1.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Id Beca:");
+        jLabel1.setText("Id persona:");
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, 20));
 
         jLabel2.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Id beneficio:");
+        jLabel2.setText("Id documento:");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, -1, 20));
 
-        idBeca.addActionListener(new java.awt.event.ActionListener() {
+        idpersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idBecaActionPerformed(evt);
+                idpersonaActionPerformed(evt);
             }
         });
-        jPanel4.add(idBeca, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 72, -1));
-        jPanel4.add(idBeneficio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 72, -1));
+        jPanel4.add(idpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 72, -1));
+        jPanel4.add(iddocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 72, -1));
 
         Join.setText("Unir");
         Join.addActionListener(new java.awt.event.ActionListener() {
@@ -181,53 +186,57 @@ public class AdjuntaDoc extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JoinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JoinActionPerformed
-        String idbeca = idBeca.getText();
-        String idbeneficio = idBeneficio.getText();
-        if (idbeca.equals("") || idbeneficio.equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una beca y un beneficio");
-        } else {
-            if (JOptionPane.showConfirmDialog(null, "¿Confirma darle a la beca " + NombreBeca
-                    + " con id=" + idbeca + "\n el beneficio:  " + DesBeneficio) == 0) {
-                String comand = "insert into beneficio_de_beca values (" + idbeca + "," + idbeneficio + ")";
+        String idper = idpersona.getText();
+        //String iddoc = iddocumento.getText();
+       
+            for (int i = 0; i < documentos.getRowCount(); i++) {
+                String iddoc = documentos.getValueAt(i,0).toString();
+                if(documentos.getValueAt(i,3) != null){
+                String comand = "insert into adjunta_doc values (" + idper + "," + iddoc + ")";
                 System.out.println(comand);
                 query.ejecutar(comand);
-                String join = "select b.id, nombre, descripcion from beca b inner join beneficio_de_beca bdb on (b.id = bdb.id_beca)"
-                        + " inner join beneficio bn on (bdb.id_beneficio = bn.id) where b.id = " + idbeca;
-                Beca_beneficios_table.setModel(query.query(join, v));
-                idBeca.setText("");
-                idBeneficio.setText("");
+                DefaultTableModel m = query.query("SELECT doc.indice,doc.descripcion,doc.tipo FROM documento doc INNER JOIN adjunta_doc ad ON (doc.indice=ad.indice_doc) where ad.id_persona="+idps, v1);
+                personas_documentos.setModel(m);
+                idpersona.setText("");
+                iddocumento.setText("");
+                }
             }
-        }
+//            if (JOptionPane.showConfirmDialog(null, "¿Confirma adjuntarle a la persona con id=" + idps + "\n el documento:  " + idds) == 0) {
+//                String comand = "insert into adjunta_doc values (" + idper + "," + iddoc + ")";
+//                System.out.println(comand);
+//                query.ejecutar(comand);
+//                String join = "select b.id, nombre, descripcion from beca b inner join beneficio_de_beca bdb on (b.id = bdb.id_beca)"
+//                        + " inner join beneficio bn on (bdb.id_beneficio = bn.id) where b.id = " + idbeca;
+//                personas_documentos.setModel(query.query(join, v));
+//                idpersona.setText("");
+//                iddocumento.setText("");
+//            }
+        
 
     }//GEN-LAST:event_JoinActionPerformed
 
-    private void Becas_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Becas_tableMouseClicked
-        int seleccionado = Becas_table.rowAtPoint(evt.getPoint());
-        idBecaTable = String.valueOf(Becas_table.getValueAt(seleccionado, 0));
-        idBeca.setText(idBecaTable);
+    private void personasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personasMouseClicked
+        idps = personas.getValueAt(personas.getSelectedRow(), 0).toString();
+        idpersona.setText(idps);
+        //NombreBeca = String.valueOf(personas.getValueAt(seleccionado, 1));
+        //String join = "select b.id, nombre, descripcion from beca b inner join beneficio_de_beca bdb on (b.id = bdb.id_beca)"
+                //+ " inner join beneficio bn on (bdb.id_beneficio = bn.id) where b.id = " + idBecaTable;
+        DefaultTableModel m = query.query("SELECT doc.indice,doc.descripcion,doc.tipo FROM documento doc INNER JOIN adjunta_doc ad ON (doc.indice=ad.indice_doc) where ad.id_persona="+idps, v1);
+        personas_documentos.setModel(m);
+    }//GEN-LAST:event_personasMouseClicked
 
-        NombreBeca = String.valueOf(Becas_table.getValueAt(seleccionado, 1));
+    private void documentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_documentosMouseClicked
+        idds = documentos.getValueAt(documentos.getSelectedRow(), 0).toString();
+        iddocumento.setText(idds);
+    }//GEN-LAST:event_documentosMouseClicked
 
-        String join = "select b.id, nombre, descripcion from beca b inner join beneficio_de_beca bdb on (b.id = bdb.id_beca)"
-                + " inner join beneficio bn on (bdb.id_beneficio = bn.id) where b.id = " + idBecaTable;
-        Beca_beneficios_table.setModel(query.query(join, v));
-    }//GEN-LAST:event_Becas_tableMouseClicked
-
-    private void Beneficios_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Beneficios_tableMouseClicked
-        int seleccionado = Beneficios_table.rowAtPoint(evt.getPoint());
-        idBeneficioTable = String.valueOf(Beneficios_table.getValueAt(seleccionado, 0));
-        idBeneficio.setText(idBeneficioTable);
-
-        DesBeneficio = String.valueOf(Beneficios_table.getValueAt(seleccionado, 1));
-    }//GEN-LAST:event_Beneficios_tableMouseClicked
-
-    private void Beca_beneficios_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Beca_beneficios_tableMouseClicked
+    private void personas_documentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personas_documentosMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_Beca_beneficios_tableMouseClicked
+    }//GEN-LAST:event_personas_documentosMouseClicked
 
-    private void idBecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idBecaActionPerformed
+    private void idpersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idpersonaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idBecaActionPerformed
+    }//GEN-LAST:event_idpersonaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,12 +275,10 @@ public class AdjuntaDoc extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Beca_beneficios_table;
-    private javax.swing.JTable Becas_table;
-    private javax.swing.JTable Beneficios_table;
     private javax.swing.JButton Join;
-    private javax.swing.JTextField idBeca;
-    private javax.swing.JTextField idBeneficio;
+    private javax.swing.JTable documentos;
+    private javax.swing.JTextField iddocumento;
+    private javax.swing.JTextField idpersona;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -284,5 +291,7 @@ public class AdjuntaDoc extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable personas;
+    private javax.swing.JTable personas_documentos;
     // End of variables declaration//GEN-END:variables
 }
