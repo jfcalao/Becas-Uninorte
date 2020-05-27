@@ -104,8 +104,8 @@ public class BCDDGU extends javax.swing.JFrame {
                 campo13.setVisible(false);
                 break;
             //Diagnostico
-            case 4:
-                tabla.setModel(query.query("select * from diagnostico", v1));
+            case 4:tabla
+                .setModel(query.query("select * from diagnostico", v1));
                 tabla1.setModel(query.query("select * from diagnostico", v1));
                 tabla2.setModel(query.query("select * from diagnostico", v1));
                 label1.setText("Nombre:");
