@@ -71,6 +71,7 @@ public class Seleccion extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel1.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 11, 333, 37));
 
@@ -124,7 +125,7 @@ public class Seleccion extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Periodo acedemico de convocatoria: ");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         combo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -136,7 +137,7 @@ public class Seleccion extends javax.swing.JFrame {
                 comboActionPerformed(evt);
             }
         });
-        jPanel1.add(combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
+        jPanel1.add(combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
 
         getContentPane().add(jPanel1);
 

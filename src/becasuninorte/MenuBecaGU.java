@@ -77,6 +77,11 @@ public class MenuBecaGU extends javax.swing.JFrame {
         jButton13.setBorderPainted(false);
         jButton13.setContentAreaFilled(false);
         jButton13.setFocusPainted(false);
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton13MousePressed(evt);
+            }
+        });
         jPanel1.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 150, 130));
 
         jLabel11.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
@@ -89,6 +94,11 @@ public class MenuBecaGU extends javax.swing.JFrame {
         beneficios1.setBorderPainted(false);
         beneficios1.setContentAreaFilled(false);
         beneficios1.setFocusPainted(false);
+        beneficios1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                beneficios1MousePressed(evt);
+            }
+        });
         jPanel1.add(beneficios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 140, 150));
 
         jLabel12.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
@@ -101,6 +111,11 @@ public class MenuBecaGU extends javax.swing.JFrame {
         jButton14.setBorderPainted(false);
         jButton14.setContentAreaFilled(false);
         jButton14.setFocusPainted(false);
+        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton14MousePressed(evt);
+            }
+        });
         jPanel1.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 260, 130, 120));
 
         jLabel13.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
@@ -125,6 +140,21 @@ public class MenuBecaGU extends javax.swing.JFrame {
         BCDDGU visual = new BCDDGU(2,DB);
         visual.setVisible(true);
     }//GEN-LAST:event_jButton1MousePressed
+
+    private void jButton13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MousePressed
+        DocumentoRequerido vista = new DocumentoRequerido(DB);
+        vista.setVisible(true);
+    }//GEN-LAST:event_jButton13MousePressed
+
+    private void beneficios1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_beneficios1MousePressed
+        BecaBeneficio vista = new BecaBeneficio(DB);
+        vista.setVisible(true);
+    }//GEN-LAST:event_beneficios1MousePressed
+
+    private void jButton14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MousePressed
+        RequisitoDeBeca vista = new RequisitoDeBeca(DB);
+        vista.setVisible(true);
+    }//GEN-LAST:event_jButton14MousePressed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

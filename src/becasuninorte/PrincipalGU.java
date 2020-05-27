@@ -572,7 +572,7 @@ public class PrincipalGU extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9MousePressed
 
     private void jButton10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MousePressed
-        Documento vista6 = new Documento(DB);
+        BCDDGU vista6 = new BCDDGU(5,DB);
         vista6.setVisible(true);
     }//GEN-LAST:event_jButton10MousePressed
 
@@ -582,21 +582,23 @@ public class PrincipalGU extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11MousePressed
 
     private void jButton12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MousePressed
-        Requisitos vista8 = new Requisitos(DB);
+        BCDDGU vista8 = new BCDDGU(6,DB);
         vista8.setVisible(true);
     }//GEN-LAST:event_jButton12MousePressed
 
     private void beneficios1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_beneficios1MousePressed
-        // TODO add your handling code here:
+        Seleccion vista =new Seleccion(DB,"Preseleccionados");
+        vista.setVisible(true);
     }//GEN-LAST:event_beneficios1MousePressed
 
     private void becas1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_becas1MousePressed
-        Seleccion vista = new Seleccion(DB,"Preseleccionados");
+        Seleccion vista = new Seleccion(DB,"Candidatos");
         vista.setVisible(true);
     }//GEN-LAST:event_becas1MousePressed
 
     private void comportamiento1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comportamiento1MousePressed
-        
+        Seleccion vista = new Seleccion(DB,"Becados");
+        vista.setVisible(true);
     }//GEN-LAST:event_comportamiento1MousePressed
 
     private void jButton13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MousePressed

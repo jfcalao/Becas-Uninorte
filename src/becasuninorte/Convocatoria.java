@@ -296,7 +296,7 @@ public class Convocatoria extends javax.swing.JFrame {
         if (JOptionPane.showConfirmDialog(null, "¿Confirma insertar la convocatoria " + perAca.getText() + " con id=" + convId.getText() + " y padre con id=" + aper.getText()) == 0) {
             String id = convId.getText();
             String periodo = "'"+perAca.getText()+"'";
-            String fAper = "'TO_DATE('"+aper.getText()+"','YYYY/MM/DD')'";
+            String fAper = "TO_DATE('"+aper.getText()+"','YYYY/MM/DD')";
             String fCierre = "'TO_DATE('"+cierre.getText()+"','YYYY/MM/DD')'";
             String state="'"+estado.getText()+"'";
             if (periodo.equals("")) {

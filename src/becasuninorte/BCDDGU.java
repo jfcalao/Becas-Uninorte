@@ -18,16 +18,19 @@ public class BCDDGU extends javax.swing.JFrame {
     /// Beca: 2
     String v2[] = {"id", "nombre", "cupos"};
     String cuposTable;
-    ///Beneficio: 3
+    ///Beneficio: 3, Requisito: 6
     String v3[] = {"id", "descripción"};
-    /// Diagnostico: 3
+    /// Documento: 5
+    String v5[] = {"indice", "descripcion", "tipo"};
+    ///Convocatoria: 7
+    String v7[] = {"id", "periodo Academico", "apertura", "cierre", "estado"};
 
     public BCDDGU(int estado, SQLclass query) {
         this.estado = estado;
         this.query = query;
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        
         switch (this.estado) {
             /// comportamiento
             case 1:
@@ -123,7 +126,69 @@ public class BCDDGU extends javax.swing.JFrame {
                 campo12.setVisible(false);
                 campo13.setVisible(false);
                 break;
-
+            case 5:
+                tabla.setModel(query.query("select * from documento", v5));
+                tabla1.setModel(query.query("select * from documento", v5));
+                tabla2.setModel(query.query("select * from documento", v5));
+                label1.setText("Inndice:");
+                label2.setText("Descripción:");
+                label3.setText("Tipo:");
+                label4.setText("Indice:");
+                label5.setText("Descripcion:");
+                label6.setText("Tipo:");
+                label7.setText("Indice:");
+                label8.setText("Descripcion:");
+                label9.setText("Tipo:");
+                label10.setVisible(false);
+                label11.setVisible(false);
+                label12.setVisible(false);
+                label13.setVisible(false);
+                campo10.setVisible(false);
+                campo11.setVisible(false);
+                campo12.setVisible(false);
+                campo13.setVisible(false);
+                break;
+            case 6:
+                tabla.setModel(query.query("select * from requisito", v3));
+                tabla1.setModel(query.query("select * from requisito", v3));
+                tabla2.setModel(query.query("select * from requisito", v3));
+                label1.setText("Id:");
+                label2.setText("Descripcion:");
+                label4.setText("Id:");
+                label5.setText("Descripcion:");
+                label7.setText("Id:");
+                label8.setText("Descripcion:");
+                label3.setVisible(false);
+                label6.setVisible(false);
+                label10.setVisible(false);
+                label11.setVisible(false);
+                label12.setVisible(false);
+                label13.setVisible(false);
+                campo3.setVisible(false);
+                campo6.setVisible(false);
+                campo10.setVisible(false);
+                campo11.setVisible(false);
+                campo12.setVisible(false);
+                campo13.setVisible(false);
+                break;
+            case 7:
+                tabla.setModel(query.query("select * from convocatoria", v7));
+                tabla1.setModel(query.query("select * from convocatoria", v7));
+                tabla2.setModel(query.query("select * from convocatoria", v7));
+                label1.setText("iId:");
+                label2.setText("Periodo:");
+                label3.setText("Fecha apertura:");
+                label4.setText("Id:");
+                label5.setText("Periodo:");
+                label6.setText("Fecha apertura:");
+                label7.setText("Id:");
+                label8.setText("Periodo:");
+                label9.setText("Fecha apertura:");
+                label10.setVisible(true);
+                label11.setVisible(true);
+                label12.setVisible(true);
+                label13.setVisible(true);
+                break;
         }
     }
 
@@ -304,6 +369,11 @@ public class BCDDGU extends javax.swing.JFrame {
                 jButton4MousePressed(evt);
             }
         });
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel9.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
 
         label12.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
@@ -482,6 +552,7 @@ public class BCDDGU extends javax.swing.JFrame {
                     }
                 }
                 break;
+            ///Diagnostico
             case 4:
                 if (JOptionPane.showConfirmDialog(null, "¿Confirma insertar Diagnostico " + campo1.getText() + " con id=" + campo3.getText() + " y detalle=" + campo2.getText()) == 0) {
                     String idDiag = campo3.getText();
@@ -507,6 +578,86 @@ public class BCDDGU extends javax.swing.JFrame {
                     campo1.setText("");
                     campo2.setText("");
                     campo3.setText("");
+                }
+                break;
+            case 5:
+                if (JOptionPane.showConfirmDialog(null, "¿Confirma insertar documento " + campo2.getText() + " con id=" + campo1.getText() + " de tipo " + campo3.getText()) == 0) {
+                    String idDocument = campo1.getText();
+                    String detalle = "'" + campo2.getText() + "'";
+                    String tipo = "'" + campo3.getText() + "'";
+                    if (detalle.equals("")) {
+                        detalle = null;
+
+                    }
+                    if (tipo.equals("")) {
+                        tipo = null;
+                    }
+                    if (idDocument.equals("")) {
+                        idDocument = null;
+                    }
+                    String comand = "insert into documento (indice,descripcion,tipo) values (" + idDocument + ", " + detalle + "," + tipo + ")";
+                    System.out.println(comand);
+                    query.ejecutar(comand);
+                    tabla.setModel(query.query("select * from documento", v5));
+                    tabla1.setModel(query.query("select * from documento", v5));
+                    tabla2.setModel(query.query("select * from documento", v5));
+                    campo1.setText("");
+                    campo2.setText("");
+                    campo3.setText("");
+                }
+            case 6:
+                String idRequisito = campo1.getText();
+                String descripcionDoc = "'" + campo2.getText() + "'";
+                if (descripcionDoc.equals("''") || idRequisito.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Debe rellenar ambos campos");
+                } else {
+                    if (JOptionPane.showConfirmDialog(null, "¿Confirma insertar el requisito con id=" + campo1.getText()
+                            + " y descripción: " + campo2.getText()) == 0) {
+                        String comand = "insert into requisito values (" + idRequisito + "," + descripcionDoc + ")";
+                        System.out.println(comand);
+                        query.ejecutar(comand);
+                        tabla.setModel(query.query("select * from requisito", v3));
+                        tabla1.setModel(query.query("select * from requisito", v3));
+                        tabla2.setModel(query.query("select * from requisito", v3));
+                        campo1.setText("");
+                        campo2.setText("");
+                    }
+                }
+                break;
+            case 7:
+                if (JOptionPane.showConfirmDialog(null, "¿Confirma insertar la convocatoria " + campo2.getText() + " con id=" + campo1.getText() + "?") == 0) {
+                    String idConvoc = campo1.getText();
+                    String periodo = "'" + campo2.getText() + "'";
+                    String fAper = "TO_DATE('" + campo3.getText() + "','YYYY/MM/DD')";
+                    String fCierre = "TO_DATE('" + campo10.getText() + "','YYYY/MM/DD')";
+                    String state = "'" + campo11.getText() + "'";
+                    if (periodo.equals("")) {
+                        periodo = null;
+
+                    }
+                    if (fAper.equals("")) {
+                        fAper = null;
+                    }
+                    if (idConvoc.equals("")) {
+                        idConvoc = null;
+                    }
+                    if (fCierre.equals("")) {
+                        fCierre = null;
+                    }
+                    if (state.equals("")) {
+                        state = null;
+                    }
+                    String comand = "insert into convocatoria values (" + idConvoc + "," + periodo + "," + fAper + "," + fCierre + "," + state + ")";
+                    System.out.println(comand);
+                    query.ejecutar(comand);
+                    tabla.setModel(query.query("select * from convocatoria", v7));
+                    tabla1.setModel(query.query("select * from convocatoria", v7));
+                    tabla2.setModel(query.query("select * from convocatoria", v7));
+                    campo1.setText("");
+                    campo2.setText("");
+                    campo3.setText("");
+                    campo10.setText("");
+                    campo11.setText("");
                 }
                 break;
         }
@@ -619,15 +770,93 @@ public class BCDDGU extends javax.swing.JFrame {
                     tabla2.setModel(query.query("select * from diagnostico", v1));
                 }
                 break;
+            case 5:
+                if (JOptionPane.showConfirmDialog(null, "¿Confirma actualizar el documento " + nomTable + " con id=" + idTable + " de tipo " + detalleTable) == 0) {
 
+                    String p = "update documento set tipo=" + campo6.getText() + ", descripcion=" + campo5.getText() + "where indice=" + idTable;
+                    System.out.println(p);
+                    String idDocumento = campo4.getText();
+                    String detalle = "'" + campo6.getText() + "'";
+                    String nom = "'" + campo5.getText() + "'";
+                    if (idDocumento.equals("")) {
+                        idDocumento = null;
+                    }
+                    if (detalle.equals("")) {
+                        detalle = null;
+                    }
+                    if (nom.equals("")) {
+                        nom = null;
+                    }
+                    query.ejecutar("update documento set indice=" + idDocumento + ", descripcion=" + nom + ", tipo=" + detalle + " where indice=" + idTable);
+                    System.out.println("Ejecutado ");
+                    //id="+idNew.getText()+",
+                    tabla1.setModel(query.query("select * from documento", v5));
+                }
+                break;
+            case 6:
+                String idDoc = campo4.getText();
+                String descripcionDoc = "'" + campo5.getText() + "'";
+                if (idTable == null) {
+                    JOptionPane.showMessageDialog(null, "Debe elegir un requisito a actualizar");
+                } else {
+                    if (descripcionDoc.equals("''") || idDoc.equals("")) {
+                        JOptionPane.showMessageDialog(null, "Debe rellenar ambos campos");
+                    } else {
+                        if (idTable.equals(idDoc) && nomTable.equals(campo5.getText())) {
+                            JOptionPane.showMessageDialog(null, "Lo digitado en los campos de texto es igual"
+                                    + "a los valores registrados dentro de la base de datos");
+                        } else {
+                            if (JOptionPane.showConfirmDialog(null, "¿Confirma actualizar el requisito con id=" + idTable
+                                    + " y descripción: " + nomTable) == 0) {
+                                String p = "update requisito set id=" + idDoc + ", descripcion=" + descripcionDoc + " where id=" + idTable;
+                                System.out.println(p);
+                                query.ejecutar(p);
+                                System.out.println("Ejecutado ");
+                                tabla.setModel(query.query("select * from requisito", v3));
+                                tabla1.setModel(query.query("select * from requisito", v3));
+                                tabla2.setModel(query.query("select * from requisito", v3));
+                                campo4.setText("");
+                                campo5.setText("");
+                            }
+                        }
+                    }
+                }
+                break;
+            case 7:
+                if (JOptionPane.showConfirmDialog(null, "¿Confirma actualizar la convocatoria: " + nomTable + " con id=" + idTable) == 0) {
+
+                    String p = "update convocatoria set fecha_apertura=" + campo6.getText() + ", periodo_academico=" + campo5.getText() + ", fecha_cierre=" + campo13.getText() + ", estado=" + campo12.getText() + ", id=" + campo4.getText() + "where id=" + idTable;
+                    System.out.println(p);
+                    String idConvo = campo4.getText();
+                    String nom = "'" + campo5.getText() + "'";
+                    String fAper = "TO_DATE('"+campo6.getText()+"','YYYY/MM/DD')";
+                    String fCierre = "TO_DATE('"+campo13.getText()+"','YYYY/MM/DD')";
+                    if (idConvo.equals("")) {
+                        idConvo = null;
+                    }
+                    if (fAper.equals("")) {
+                        fAper = null;
+                    }
+                    if (nom.equals("")) {
+                        nom = null;
+                    }
+                    query.ejecutar("update convocatoria set id=" + idConvo + ", periodo_academico=" + nom + ", fecha_apertura=" + fAper + ", fecha_cierre=" + fCierre + ", estado='" + campo12.getText() + "' where id=" + idTable);
+                    System.out.println("Ejecutado ");
+                    //id="+idNew.getText()+",
+                    tabla.setModel(query.query("select * from convocatoria", v7));
+                    tabla1.setModel(query.query("select * from convocatoria", v7));
+                    tabla2.setModel(query.query("select * from convocatoria", v7));
+                }
         }
     }//GEN-LAST:event_jButton4MousePressed
 
     private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla1MouseClicked
         int seleccionado;
+        seleccionado = tabla1.rowAtPoint(evt.getPoint());
+        idTable = String.valueOf(tabla1.getValueAt(seleccionado, 0));
         switch (estado) {
             /// Comportamiento
-            case 1 :
+            case 1:
                 seleccionado = tabla1.rowAtPoint(evt.getPoint());
                 idTable = String.valueOf(tabla1.getValueAt(seleccionado, 0));
                 campo6.setText(idTable);
@@ -661,6 +890,28 @@ public class BCDDGU extends javax.swing.JFrame {
                 detalleTable = String.valueOf(tabla1.getValueAt(seleccionado, 2));
                 campo5.setText(detalleTable);
                 break;
+            case 5:
+                campo4.setText(idTable);
+                nomTable = String.valueOf(tabla1.getValueAt(seleccionado, 1));
+                campo5.setText(nomTable);
+                detalleTable = String.valueOf(tabla1.getValueAt(seleccionado, 2));
+                campo6.setText(detalleTable);
+                break;
+            case 6:
+                seleccionado = tabla1.rowAtPoint(evt.getPoint());
+                idTable = String.valueOf(tabla1.getValueAt(seleccionado, 0));
+                campo4.setText(idTable);
+                nomTable = String.valueOf(tabla1.getValueAt(seleccionado, 1));
+                campo5.setText(nomTable);
+                break;
+            case 7:
+                campo4.setText(String.valueOf(tabla1.getValueAt(seleccionado, 0)));
+                nomTable = String.valueOf(tabla1.getValueAt(seleccionado, 1));
+                campo5.setText(nomTable);
+                campo6.setText(String.valueOf(tabla1.getValueAt(seleccionado, 2)));
+                campo13.setText(String.valueOf(tabla1.getValueAt(seleccionado, 3)));
+                campo12.setText(String.valueOf(tabla1.getValueAt(seleccionado, 4)));
+                
         }
     }//GEN-LAST:event_tabla1MouseClicked
 
@@ -713,6 +964,41 @@ public class BCDDGU extends javax.swing.JFrame {
                     System.out.println("No borro");
                 }
                 break;
+            ///Documento
+            case 5:
+                if (JOptionPane.showConfirmDialog(null, "¿Confirma borrar el documento con id=" + idTable + "?") == 0) {
+                    query.ejecutar("delete from documento where indice=" + idTable);
+                    tabla.setModel(query.query("select * from documento", v5));
+                    tabla1.setModel(query.query("select * from documento", v5));
+                    tabla2.setModel(query.query("select * from documento", v5));
+                } else {
+                    System.out.println("No borro");
+                }
+                break;
+            case 6:
+                if (idTable == null) {
+                    JOptionPane.showMessageDialog(null, "Debe elegir un requisito a borrar");
+                } else {
+                    if (JOptionPane.showConfirmDialog(null, "¿Confirma borrar el requisito con id=" + idTable
+                            + " y descripción: " + nomTable) == 0) {
+                        query.ejecutar("delete from requisito where id=" + idTable);
+                        tabla.setModel(query.query("select * from requisito", v3));
+                        tabla1.setModel(query.query("select * from requisito", v3));
+                        tabla2.setModel(query.query("select * from requisito", v3));
+                    } else {
+                        System.out.println("No borro");
+                    }
+                }
+                break;
+            case 7:
+                if (JOptionPane.showConfirmDialog(null, "¿Confirma borrar la convocatoria " + nomTable + " con id=" + idTable) == 0) {
+                    query.ejecutar("delete from convocatoria where id=" + idTable);
+                    tabla.setModel(query.query("select * from convocatoria", v7));
+                    tabla1.setModel(query.query("select * from convocatoria", v7));
+                    tabla2.setModel(query.query("select * from convocatoria", v7));
+                } else {
+                    System.out.println("No borro");
+                }
         }
     }//GEN-LAST:event_jButton5MousePressed
 
@@ -739,7 +1025,10 @@ public class BCDDGU extends javax.swing.JFrame {
                 cuposTable = String.valueOf(tabla2.getValueAt(seleccionado, 2));
                 campo9.setText(cuposTable);
                 break;
-         
+            case 7:
+                nomTable = String.valueOf(tabla2.getValueAt(seleccionado, 1));
+                break;
+
         }
 
 
@@ -773,6 +1062,10 @@ public class BCDDGU extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
