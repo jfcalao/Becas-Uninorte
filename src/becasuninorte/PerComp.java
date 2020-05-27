@@ -178,13 +178,16 @@ public class PerComp extends javax.swing.JFrame {
         String id_comp = jTable1.getValueAt(jTable1.getSelectedRow(),0).toString();
         String id_per = personas.getValueAt(personas.getSelectedRow(),0).toString();
         DB.ejecutar("INSERT INTO comportamiento_de_persona(id_comportamiento,id_persona) VALUES("+ id_comp +","+ id_per +")");
+        DefaultTableModel m = DB.query("SELECT com.id,com.nombre,detalle FROM  persona per INNER JOIN comportamiento_de_persona ON (id=id_persona) INNER JOIN comportamiento com on (id_comportamiento=com.id) where per.id="+id_per, v1);
+        compor_persona.setModel(m);
     }//GEN-LAST:event_JoinActionPerformed
 
     private void personasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personasMouseClicked
         idpersona.setText(personas.getValueAt(personas.getSelectedRow(), 0).toString());
         String idper = personas.getValueAt(personas.getSelectedRow(),0).toString();
-        String[] v = {"id","comportamiento","Descripción"};
-        DefaultTableModel m = DB.query("SELECT com.id,com.nombre,detalle FROM  persona per INNER JOIN comportamiento_de_persona ON (id=id_persona) INNER JOIN comportamiento com on (id_comportamiento=com.id) where per.id="+idper, v);
+        
+        DefaultTableModel m = DB.query("SELECT com.id,com.nombre,detalle FROM  persona per INNER JOIN comportamiento_de_persona ON (id=id_persona) INNER JOIN comportamiento com on (id_comportamiento=com.id) where per.id="+idper, v1);
+        compor_persona.setModel(m);
     }//GEN-LAST:event_personasMouseClicked
 
     private void compor_personaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_compor_personaMouseClicked

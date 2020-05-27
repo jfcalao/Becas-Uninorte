@@ -19,7 +19,7 @@ public class PerDiagnostico extends javax.swing.JFrame {
      */
     static SQLclass DB;
     String[] v1 = {"id","Nombre","Detalle"};
-    String[] v2 = {"id","Identificación","Nombre","Primer apellido","Segundo apellido","tipo"};
+    String[] v2 = {"id","Identificación","Nombre","Primer apellido","Segundo apellido"};
     
     public PerDiagnostico(SQLclass database) {
         initComponents();
@@ -178,13 +178,16 @@ public class PerDiagnostico extends javax.swing.JFrame {
         String id_diag = diagnosticos.getValueAt(diagnosticos.getSelectedRow(),0).toString();
         String id_per = personas.getValueAt(personas.getSelectedRow(),0).toString();
         DB.ejecutar("INSERT INTO diagnostico_de_persona(id_diagnostico,id_persona) VALUES("+ id_diag +","+ id_per +")");
+        DefaultTableModel m = DB.query("SELECT diag.id,diag.nombre,detalle FROM  persona per INNER JOIN diagnostico_de_persona ON (id=id_persona) INNER JOIN diagnostico diag on (id_diagnostico=diag.id) where per.id="+id_per, v1);
+        compor_persona.setModel(m);
     }//GEN-LAST:event_JoinActionPerformed
 
     private void personasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personasMouseClicked
         idpersona.setText(personas.getValueAt(personas.getSelectedRow(), 0).toString());
         String idper = personas.getValueAt(personas.getSelectedRow(),0).toString();
-        String[] v = {"id","comportamiento","Descripción"};
-        DefaultTableModel m = DB.query("SELECT com.id,com.nombre,detalle FROM  persona per INNER JOIN diagnostico_de_persona ON (id=id_persona) INNER JOIN diagnostico diag on (id_diagnostico=diag.id) where per.id="+idper, v);
+        
+        DefaultTableModel m = DB.query("SELECT diag.id,diag.nombre,detalle FROM  persona per INNER JOIN diagnostico_de_persona ON (id=id_persona) INNER JOIN diagnostico diag on (id_diagnostico=diag.id) where per.id="+idper, v1);
+        compor_persona.setModel(m);
     }//GEN-LAST:event_personasMouseClicked
 
     private void diagnosticosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_diagnosticosMouseClicked

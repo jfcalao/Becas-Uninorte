@@ -1,6 +1,6 @@
 package becasuninorte;
 
-import static becasuninorte.Comportamiento.query;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 

@@ -15,7 +15,7 @@ public class IngresaPersonaGU extends javax.swing.JFrame {
 
     static SQLclass DB;
     String v[] = {"id", "nombre", "cupos"};
-    String[] v1 = {"id,per"};
+    String[] v1 = {"id","per"};
     DefaultTableModel m;
     public IngresaPersonaGU(SQLclass database) {
         initComponents();
@@ -33,7 +33,6 @@ public class IngresaPersonaGU extends javax.swing.JFrame {
     private void initComponents() {
 
         grupoboton = new javax.swing.ButtonGroup();
-        jButton5 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         id = new javax.swing.JTextField();
@@ -67,13 +66,6 @@ public class IngresaPersonaGU extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Becas_table = new javax.swing.JTable();
-
-        jButton5.setText(" Atras");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 570));
@@ -227,12 +219,6 @@ public class IngresaPersonaGU extends javax.swing.JFrame {
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Principal vista = new Principal(DB);
-        vista.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
 String idTable, nomTable, cuposTable;
 
     public static void main(String args[]) {
@@ -256,7 +242,6 @@ String idTable, nomTable, cuposTable;
     private javax.swing.JTextField id;
     private javax.swing.JTextField identificacion;
     private javax.swing.JButton insertar;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
