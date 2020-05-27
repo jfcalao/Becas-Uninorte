@@ -53,6 +53,11 @@ public class MenuConvocatoriaGU extends javax.swing.JFrame {
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setFocusPainted(false);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton2MousePressed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, -1, -1));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -84,9 +89,9 @@ public class MenuConvocatoriaGU extends javax.swing.JFrame {
         jTextArea9.setColumns(20);
         jTextArea9.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea9.setRows(5);
-        jTextArea9.setText("Relaciona una beca con \nDOCUMENTOS,BENEFICIOS \n     y REQUISITOS.");
+        jTextArea9.setText("Inscribe becas a una\nconvocatoria");
         jTextArea9.setOpaque(false);
-        jPanel1.add(jTextArea9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 190, 80));
+        jPanel1.add(jTextArea9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 190, 80));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 500));
 
@@ -99,6 +104,11 @@ public class MenuConvocatoriaGU extends javax.swing.JFrame {
         BCDDGU vista=new BCDDGU(7,DB);
         vista.setVisible(true);
     }//GEN-LAST:event_jButton1MousePressed
+
+    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
+        BecasConvocatoria vista=new BecasConvocatoria(DB);
+        vista.setVisible(true);
+    }//GEN-LAST:event_jButton2MousePressed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

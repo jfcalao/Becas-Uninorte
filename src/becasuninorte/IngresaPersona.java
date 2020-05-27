@@ -23,7 +23,9 @@ public class IngresaPersona extends javax.swing.JFrame {
      */
     static SQLclass DB;
     String v[] = {"id", "nombre", "cupos"};
+
     String[] v1 = {"id","per"};
+
     DefaultTableModel m;
     public IngresaPersona(SQLclass database) {
         initComponents();
@@ -33,8 +35,10 @@ public class IngresaPersona extends javax.swing.JFrame {
         for (int i = 0; i < m.getRowCount(); i++) {
             combo.addItem(m.getValueAt(i,1).toString());
         }
-        
-        
+
+        DB = database;
+        m = DB.query("SELECT id,periodo_academico FROM convocatoria", v1);
+
         Becas_table.setModel(DB.query("select * from beca", v));
     }
 

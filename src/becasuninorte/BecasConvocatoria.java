@@ -18,7 +18,7 @@ public class BecasConvocatoria extends javax.swing.JFrame {
     String v1[] = {"id", "nombre", "cupos"};
     String v2[] = {"id", "descripción"};
     String v[] = {"id", "periodo", "fecha inicio","fecha cierre","estado"};
-    String idConvTable, idBeneficioTable, periodoAca, nomBeca;
+    String idConvTable, idBecaTable, periodoAca, nomBeca;
 
     public BecasConvocatoria(SQLclass query) {
         initComponents();
@@ -200,7 +200,7 @@ public class BecasConvocatoria extends javax.swing.JFrame {
 
     private void becasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_becasMouseClicked
         int seleccionado = becas.rowAtPoint(evt.getPoint());
-        idBeneficioTable = String.valueOf(becas.getValueAt(seleccionado, 0));
+        idBecaTable = String.valueOf(becas.getValueAt(seleccionado, 0));
 
         nomBeca = String.valueOf(becas.getValueAt(seleccionado, 1));
     }//GEN-LAST:event_becasMouseClicked

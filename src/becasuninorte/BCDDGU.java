@@ -30,7 +30,7 @@ public class BCDDGU extends javax.swing.JFrame {
         this.query = query;
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        
         switch (this.estado) {
             /// comportamiento
             case 1:
